@@ -14,14 +14,18 @@ public class WaveManager {
         this.waveNumber = 0;
 
         this.currentWave = null;
+
+        newWave();
     }
 
-    private void Update(){
-
+    public void Update(){
+        if(currentWave!=null) currentWave.Update();
     }
 
     private void newWave(){
         currentWave = new Wave(enemyType, timeBetweenEnemies, enemiesPerWave);
+        waveNumber++;
+        System.out.println("Beginning Wave: " + waveNumber);
     }
 
 }
