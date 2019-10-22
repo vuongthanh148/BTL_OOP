@@ -19,7 +19,7 @@ public class Player {
     }
 
     public void SetTile(){
-        grid.setTile((int) Mouse.getX() / 64, (int)(Artist.HEIGHT - Mouse.getY()-1) / 64, types[cur]);
+        grid.setTile((int) Mouse.getX() / 64, (int)(Artist.HEIGHT - Mouse.getY() - 1 ) / 64, types[cur]);
     }
 
     public void Update(){

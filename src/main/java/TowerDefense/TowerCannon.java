@@ -13,8 +13,9 @@ public class TowerCannon {
     public Texture baseTexture, cannonTexture;
     private Tile startTile;
     private ArrayList<Bullet> bullets;
+    private  ArrayList<Enemy> enemies;
 
-    public TowerCannon(Texture baseTexture, Tile startTile, int damage) {
+    public TowerCannon(Texture baseTexture, Tile startTile, int damage, ArrayList<Enemy> enemies) {
         this.baseTexture = baseTexture;
         this.cannonTexture = QuickLoad("CannonGun.png");
         this.startTile = startTile;
@@ -26,6 +27,7 @@ public class TowerCannon {
         this.fireRate = 0.5f;
         this.timeSinceLastShot = 0;
         this.bullets = new ArrayList<Bullet>();
+        this.enemies = new ArrayList<Enemy>();
 
     }
 

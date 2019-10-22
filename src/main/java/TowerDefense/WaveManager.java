@@ -1,5 +1,7 @@
 package TowerDefense;
 
+import java.util.ArrayList;
+
 public class WaveManager {
     private float timeSinceLastWave, timeBetweenEnemies;
     private int waveNumber, enemiesPerWave;
@@ -19,7 +21,8 @@ public class WaveManager {
     }
 
     public void Update(){
-        if(currentWave!=null) currentWave.Update();
+        if(!currentWave.isCompleted()) currentWave.Update();
+        else newWave();
     }
 
     private void newWave(){
