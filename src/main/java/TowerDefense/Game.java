@@ -14,7 +14,7 @@ public class Game {
         grid = new TileGrid(map);
         player = new Player(grid);
         waveManager = new WaveManager(new Enemy(QuickLoad("enemy.png"),grid.getTile(1,8),
-                grid, 64, 64, 100, 64), 4, 10);
+                grid, 64, 64, 100, 80), 4, 10);
         tower = new TowerCannon(QuickLoad("CannonBase.png"), grid.getTile(4, 7), 10);
     }
 
