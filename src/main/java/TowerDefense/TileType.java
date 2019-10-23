@@ -1,7 +1,7 @@
 package TowerDefense;
 
 public enum TileType {
-    Grass("grass.png", true), Dirt("dirt.png", false), Water("water.png", true);
+    Grass("grass.png", true), Dirt("dirt.png", false), Water("water.png", false);
 
 
     String textureName;
