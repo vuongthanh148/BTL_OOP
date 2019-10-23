@@ -39,9 +39,9 @@ public class Player {
         }
 
         //Handle Mouse
+        //Set the Tower
         if(Mouse.isButtonDown(0) && !leftMouseDown){
             towerList.add(new TowerCannon(QuickLoad("cannonBase.png"), grid.getTile(Mouse.getX()/64,(Artist.HEIGHT - Mouse.getY())/64),10, waveManager.getCurrentWave().getEnemyList()));
-
         }
 
         leftMouseDown = Mouse.isButtonDown(0);
@@ -59,8 +59,6 @@ public class Player {
                     case Keyboard.KEY_N:
                         cur = 2;
                         break;
-                    case Keyboard.KEY_T:
-                        towerList.add(new TowerCannon(QuickLoad("cannonBase.png"), grid.getTile(7,7),10, waveManager.getCurrentWave().getEnemyList()));
                 }
             }
         }
