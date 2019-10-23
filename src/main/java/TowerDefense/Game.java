@@ -10,7 +10,7 @@ public class Game {
     public Game(int[][] map){
         grid = new TileGrid(map);
         waveManager = new WaveManager(new Enemy( QuickLoad("enemy.png"),grid.getTile(1,8),
-                grid, 64, 64, 100, 100 ), 1, 3);
+                grid, 64, 64, 100, 100 ), 1, 5);
         player = new Player(grid, waveManager);
     }
 
