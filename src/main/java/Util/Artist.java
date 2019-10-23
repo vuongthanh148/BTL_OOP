@@ -37,7 +37,6 @@ public class Artist {
     }
 
     public static void DrawQuad(float x, float y, float width, float height){
-
     glBegin(GL_QUADS);
     glVertex2f( x , y);
     glVertex2f(x + width, y);
