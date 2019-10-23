@@ -4,11 +4,18 @@
     <list default="true" id="bb5036dd-299b-414a-bcd7-28020f9ccfe7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Bullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerCannon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Wave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Wave.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/WaveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/WaveManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Util/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Bullet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TowerCannon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TowerCannon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Wave.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Wave.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/WaveManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/WaveManager.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +46,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../java-tower-defense" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -119,6 +126,7 @@
       <workItem from="1571724089058" duration="494000" />
       <workItem from="1571724679856" duration="3623000" />
       <workItem from="1571755269184" duration="3371000" />
+      <workItem from="1571804632334" duration="8073000" />
     </task>
     <servers />
   </component>

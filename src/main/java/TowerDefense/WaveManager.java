@@ -20,7 +20,7 @@ public class WaveManager {
         newWave();
     }
 
-    public void Update(){
+    public void update(){
         if(!currentWave.isCompleted()) currentWave.Update();
         else newWave();
     }
@@ -31,4 +31,7 @@ public class WaveManager {
         System.out.println("Beginning Wave: " + waveNumber);
     }
 
+    public Wave getCurrentWave() {
+        return currentWave;
+    }
 }
