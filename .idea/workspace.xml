@@ -3,14 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="bb5036dd-299b-414a-bcd7-28020f9ccfe7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TileType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Util/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Util/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/Clock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TileGrid.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TileGrid.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TileType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TileType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Util/Artist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Util/Artist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Util/Clock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Util/Clock.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -1,5 +1,6 @@
 package TowerDefense;
 
+import Util.Artist;
 import org.lwjgl.Sys;
 import org.newdawn.slick.opengl.Texture;
 
@@ -9,7 +10,7 @@ import static Util.Artist.*;
 import static Util.Clock.*;
 
 public class Enemy {
-    private int height,width,health, currentCheckpoint;
+    private int height,width,health, currentCheckpoint,oldX, oldY;
     float speed,x,y;
     Texture texture;
     private Tile startTile;
@@ -30,13 +31,15 @@ public class Enemy {
         this.grid = grid;
         this.checkpoints = new ArrayList<CheckPoint>();
         this.directions = new int[2];
+        this.oldX = 0;
+        this.oldY = 0;
         //Xdir
         this.directions[0]=0;
         //YDir
         this.directions[1]=0;
-        directions = FindNextDir(startTile);
-        this.currentCheckpoint = 0;
-        PopulatedCheckpointList();
+//        directions = FindNextDir(startTile);
+//        this.currentCheckpoint = 0;
+//        PopulatedCheckpointList();
     }
 
     public void Draw(){
@@ -44,7 +47,7 @@ public class Enemy {
     }
 
     public void Update(){
-        if(first) first = false;
+        /*if(first) first = false;
         else {
             if(CheckpointReached()){
                 if(currentCheckpoint == checkpoints.size()-1) Die();
@@ -56,10 +59,23 @@ public class Enemy {
                 x += Delta() * checkpoints.get(currentCheckpoint).getxDir() * speed;
                 y += Delta() * checkpoints.get(currentCheckpoint).getyDir() * speed;
             }
+        }*/
+        if(Math.abs((int) x - oldX) >= 64 || Math.abs((int) y - oldY) >= 64) {
+            directions = FindNextDir(grid.getTile((int) x / 64, (int) y / 64 ));
+            oldX = (int) x;
+            oldY = (int) y;
+            System.out.println("found");
         }
+        System.out.println("x: "+ (int) x + " oldX: " + oldX + " y: " + (int) y + " oldY: " + oldY );
+        if(directions[0] != 3 ){
+            x += Delta()*directions[0]*speed;
+            y += Delta()*directions[1]*speed;
+        }
+        else Die();
     }
 
-    private boolean CheckpointReached(){
+    //////////////////////////////////////////////////////////
+   /* private boolean CheckpointReached(){
         boolean reached = false;
         Tile t = checkpoints.get(currentCheckpoint).getTile();
         if(x>t.getX()- 3
@@ -109,12 +125,11 @@ public class Enemy {
         }
         c = new CheckPoint(next, directions[0], directions[1]);
         return c;
-    }
-
+    }*/
+/////////////////////////////////////////////////////////////////////////
+    //Find wayyyyyy
     private int[] FindNextDir(Tile s){
         int[] dir = new int[2];
-        dir[0]=0;
-        dir[1]=0;
         Tile U = grid.getTile(s.getXPlace(),s.getYPlace() - 1);
         Tile R = grid.getTile(s.getXPlace() + 1,s.getYPlace());
         Tile D = grid.getTile(s.getXPlace(),s.getYPlace() + 1);
@@ -122,26 +137,29 @@ public class Enemy {
         if(s.getType() == U.getType() && this.directions[1] != 1) {
             dir[0] = 0;
             dir[1] = -1;
+            //System.out.println("U");
         }
         else if(s.getType() == L.getType() && this.directions[0] != 1) {
             dir[0] = -1;
             dir[1] = 0;
+            //System.out.println("L");
         }
         else if(s.getType() == D.getType() && this.directions[1] != -1)
         {
             dir[0] = 0;
             dir[1] = 1;
+            //System.out.println("D");
         }
         else if(s.getType() == R.getType() && this.directions[0] != -1)
         {
             dir[0] = 1;
             dir[1] = 0;
+            //System.out.println("R");
         }
         else{
-            dir[0] = 2;
-            dir[1] = 2;
+            dir[0] = 3;
+            dir[1] = 3;
         }
-
         return dir;
     }
 

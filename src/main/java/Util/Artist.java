@@ -14,7 +14,7 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL11.GL_MODELVIEW;
 
 public class Artist {
-    public static final int WIDTH = 20*64, HEIGHT= 12*64;
+    public static final int WIDTH = 20*64, HEIGHT= 10*64;
 
     public static void BeginSession(){
         Display.setTitle("ngu ngu ngu ngu");
