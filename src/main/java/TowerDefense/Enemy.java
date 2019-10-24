@@ -8,24 +8,29 @@ import java.util.ArrayList;
 
 import static Util.Artist.*;
 import static Util.Clock.*;
+import static sun.dc.pr.Rasterizer.TILE_SIZE;
 
 public class Enemy {
-    public int height = 64, width = 64,health, currentCheckpoint,oldX, oldY;
-    float speed,x,y;
-    Texture texture;
+    public int height = 64, width = 64, currentCheckpoint,oldX, oldY;
+    float speed,x,y,health, startHealth;
+    Texture texture, healthBackground, healthForeground, healthBroder ;// thêm thuộc tính thanh sức khỏe
     public Tile startTile;
     public boolean first = true, alive = true;
     public TileGrid grid;
     public int[] directions;
 
-    public Enemy(Texture texture, Tile startTile, TileGrid grid, int width, int height,  int health, float speed){
+    public Enemy(Texture texture, Tile startTile, TileGrid grid, int width, int height,  float health, float speed){
         this.texture = texture;
+        this.healthBackground = QuickLoad("HealthBackground.PNG");
+        this.healthForeground= QuickLoad("HealthForeground.PNG");
+        this.healthBroder= QuickLoad("HealthBorder.PNG");
         this.startTile = startTile;
         this.y = startTile.getY();
         this.x = startTile.getX();
         this.width = width;
         this.health = health;
         this.height = height;
+        this.startHealth = health;
         this.speed = speed;
         this.grid = grid;
         this.directions = new int[2];
@@ -56,7 +61,12 @@ public class Enemy {
     }
 
     public void Draw(){
+        float healthPercentage = health/ startHealth;
         DrawQuadTex(texture,x,y,width,height);
+        DrawQuadTex(healthForeground,x,y-16,TILE_SIZE* healthPercentage,8);
+        DrawQuadTex(healthBackground,x,y -16,width,8);
+
+        DrawQuadTex(healthBroder,x,y-16,width,8);
     }
 
     public void Update(){
@@ -200,7 +210,7 @@ public class Enemy {
         this.width = width;
     }
 
-    public int getHealth() {
+    public float getHealth() {
         return health;
     }
 
