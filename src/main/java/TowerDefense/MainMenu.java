@@ -5,7 +5,7 @@ import org.newdawn.slick.opengl.Texture;
 import static Util.Artist.*;
 import static com.sun.deploy.trace.TraceLevel.UI;
 
-public class MainMenu {
+public class MainMenu<UI> {
     private Texture background;
     private UI menuUI;
 

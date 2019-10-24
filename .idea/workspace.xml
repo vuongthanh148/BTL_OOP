@@ -24,7 +24,23 @@
     <option name="showStatusBarWidget" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb5036dd-299b-414a-bcd7-28020f9ccfe7" name="Default Changelist" comment="" />
+    <list default="true" id="bb5036dd-299b-414a-bcd7-28020f9ccfe7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/BossEnemy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Bullet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/NormalEnemy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/SmallEnemy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TankerEnemy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TileGrid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TowerCannon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Wave.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/WaveManager.class" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,10 +51,16 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="newThao's" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -98,6 +120,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
