@@ -1,7 +1,6 @@
 package Util;
 
 import TowerDefense.Enemy;
-import jdk.management.resource.internal.TotalResourceContext;
 import org.lwjgl.Sys;
 
 public class Clock {
@@ -17,7 +16,7 @@ public class Clock {
         long currentTime  = getTime();
         int delta = (int) (currentTime-lastFrame);
         lastFrame = getTime();
-        if(delta*0.001f > 0.012f ) return  0.012f;
+        if(delta*0.001f > 0.010f ) return  0.010f;
         return (float) (delta*0.001f);
     }
 
