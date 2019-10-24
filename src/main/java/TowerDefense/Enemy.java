@@ -83,8 +83,8 @@ public class Enemy {
                 y += Delta() * checkpoints.get(currentCheckpoint).getyDir() * speed;
             }
         }*/
-        if(Math.abs((int) x - oldX) >= 64 || Math.abs((int) y - oldY) >= 64) {
-            directions = FindNextDir(grid.getTile((int) x / 64, (int) y / 64 ));
+        if(Math.abs((int) x - oldX) >= TILE_SIZE || Math.abs((int) y - oldY) >= TILE_SIZE) {
+            directions = FindNextDir(grid.getTile((int) x / TILE_SIZE, (int) y / TILE_SIZE ));
             oldX = (int) x;
             oldY = (int) y;
             System.out.println("found");

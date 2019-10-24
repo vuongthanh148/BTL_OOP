@@ -7,6 +7,7 @@ public class Game {
     private Player player;
     private WaveManager waveManager;
     private Enemy[] enemyTypes;
+    public final int TILE_SIZE = 64;
 
     public Game(TileGrid grid){
         this.grid = grid;

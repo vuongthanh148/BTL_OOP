@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import static Util.Clock.*;
 import static Util.Artist.*;
+import static sun.dc.pr.Rasterizer.TILE_SIZE;
 
 public class TowerCannon {
     float x,y, timeSinceLastShot, fireRate, angel ;
@@ -35,7 +36,7 @@ public class TowerCannon {
 
     private void Shoot(){
         timeSinceLastShot = 0;
-        bullets.add(new Bullet(QuickLoad("Bullet.png"), target, x + 32, y + 32, 2000, 10 ));
+        bullets.add(new Bullet(QuickLoad("Bullet.png"), target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 2000, 10 ));
     }
 
     public void update(){

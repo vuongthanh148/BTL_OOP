@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static Util.Clock.Delta;
+import static sun.dc.pr.Rasterizer.TILE_SIZE;
 
 public class Wave {
     private float timeSinceLastSpawn, spawnTime;
@@ -49,7 +50,7 @@ public class Wave {
         Random r = new Random();
         index = r.nextInt(3);
         enemyList.add(new Enemy(enemyTypes[index].getTexture(),enemyTypes[index].getStartTile(), enemyTypes[index].getTileGrid(),
-                64,64, enemyTypes[index].getHealth(), enemyTypes[index].getSpeed()));
+                TILE_SIZE,TILE_SIZE, enemyTypes[index].getHealth(), enemyTypes[index].getSpeed()));
     }
 
     public boolean isCompleted(){

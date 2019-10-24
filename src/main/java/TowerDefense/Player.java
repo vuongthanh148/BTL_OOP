@@ -7,6 +7,7 @@ import org.lwjgl.input.Mouse;
 import java.util.ArrayList;
 
 import static Util.Artist.*;
+import static sun.dc.pr.Rasterizer.TILE_SIZE;
 
 public class Player {
     private TileGrid grid;
@@ -29,7 +30,7 @@ public class Player {
     }
 
     public void setTile(){
-        grid.setTile((int) Mouse.getX() / 64, (int)(Artist.HEIGHT - Mouse.getY() - 1 ) / 64, types[cur]);
+        grid.setTile((int) Mouse.getX() / TILE_SIZE, (int)(Artist.HEIGHT - Mouse.getY() - 1 ) / TILE_SIZE, types[cur]);
     }
 
     public void update(){
@@ -41,7 +42,7 @@ public class Player {
         //Handle Mouse
         //Set the Tower
         if(Mouse.isButtonDown(0) && !leftMouseDown){
-            towerList.add(new TowerCannon(QuickLoad("cannonBase.png"), grid.getTile(Mouse.getX()/64,(Artist.HEIGHT - Mouse.getY())/64),10, waveManager.getCurrentWave().getEnemyList()));
+            towerList.add(new TowerCannon(QuickLoad("cannonBase.png"), grid.getTile(Mouse.getX()/ TILE_SIZE,(Artist.HEIGHT - Mouse.getY())/ TILE_SIZE),10, waveManager.getCurrentWave().getEnemyList()));
         }
 
         leftMouseDown = Mouse.isButtonDown(0);
