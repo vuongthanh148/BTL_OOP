@@ -21,7 +21,8 @@ public class Main {
                 {0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
         };
-        //Game game = new Game(map);
+        TileGrid grid = new TileGrid(map);
+        Game game = new Game(grid);
         while(!Display.isCloseRequested()){
             Clock.Update();
 
