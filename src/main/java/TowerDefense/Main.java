@@ -21,11 +21,12 @@ public class Main {
                 {0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
         };
-        Game game = new Game(map);
+        //Game game = new Game(map);
         while(!Display.isCloseRequested()){
             Clock.Update();
 
-            game.Update();
+            //game.Update();
+            StateManager.update();
 
             Display.update();
             Display.sync(60);
