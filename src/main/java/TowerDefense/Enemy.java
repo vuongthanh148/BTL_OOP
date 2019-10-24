@@ -10,7 +10,7 @@ import static Util.Artist.*;
 import static Util.Clock.*;
 import static sun.dc.pr.Rasterizer.TILE_SIZE;
 
-public class Enemy {
+public class Enemy implements Entity  {
     public int height = 64, width = 64, currentCheckpoint,oldX, oldY;
     float speed,x,y,health, startHealth;
     Texture texture, healthBackground, healthForeground, healthBroder ;// thêm thuộc tính thanh sức khỏe
@@ -60,7 +60,7 @@ public class Enemy {
 
     }
 
-    public void Draw(){
+    public void draw(){
         float healthPercentage = health/ startHealth;
         DrawQuadTex(texture,x,y,width,height);
         DrawQuadTex(healthForeground,x,y-16,TILE_SIZE* healthPercentage,8);
@@ -69,7 +69,7 @@ public class Enemy {
         DrawQuadTex(healthBroder,x,y-16,width,8);
     }
 
-    public void Update(){
+    public void update(){
         /*if(first) first = false;
         else {
             if(CheckpointReached()){
