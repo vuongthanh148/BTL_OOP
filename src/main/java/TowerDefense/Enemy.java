@@ -10,14 +10,13 @@ import static Util.Artist.*;
 import static Util.Clock.*;
 
 public class Enemy {
-    private int height,width,health, currentCheckpoint,oldX, oldY;
+    public int height = 64, width = 64,health, currentCheckpoint,oldX, oldY;
     float speed,x,y;
     Texture texture;
-    private Tile startTile;
-    private boolean first = true, alive = true;
-    private TileGrid grid;
-    private ArrayList<CheckPoint> checkpoints;
-    private int[] directions;
+    public Tile startTile;
+    public boolean first = true, alive = true;
+    public TileGrid grid;
+    public int[] directions;
 
     public Enemy(Texture texture, Tile startTile, TileGrid grid, int width, int height,  int health, float speed){
         this.texture = texture;
@@ -29,7 +28,6 @@ public class Enemy {
         this.height = height;
         this.speed = speed;
         this.grid = grid;
-        this.checkpoints = new ArrayList<CheckPoint>();
         this.directions = new int[2];
         this.oldX = 0;
         this.oldY = 0;
@@ -37,9 +35,24 @@ public class Enemy {
         this.directions[0]=0;
         //YDir
         this.directions[1]=0;
-//        directions = FindNextDir(startTile);
-//        this.currentCheckpoint = 0;
-//        PopulatedCheckpointList();
+    }
+
+    public Enemy(int x, int y, TileGrid grid) {
+        this.grid = grid;
+        this.startTile = grid.getTile(x,y);
+        this.x = x;
+        this.y = y;
+        this.grid = grid;
+        this.width = 64;
+        this.height = 64;
+        this.directions = new int[2];
+        this.oldX = 0;
+        this.oldY = 0;
+        //Xdir
+        this.directions[0]=0;
+        //YDir
+        this.directions[1]=0;
+
     }
 
     public void Draw(){
@@ -128,7 +141,7 @@ public class Enemy {
     }*/
 /////////////////////////////////////////////////////////////////////////
     //Find wayyyyyy
-    private int[] FindNextDir(Tile s){
+    public int[] FindNextDir(Tile s){
         int[] dir = new int[2];
         Tile U = grid.getTile(s.getXPlace(),s.getYPlace() - 1);
         Tile R = grid.getTile(s.getXPlace() + 1,s.getYPlace());
@@ -167,7 +180,7 @@ public class Enemy {
         return alive;
     }
 
-    private void Die(){
+    public void Die(){
         alive = false;
     }
 
