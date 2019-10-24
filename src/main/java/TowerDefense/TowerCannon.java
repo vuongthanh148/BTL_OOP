@@ -3,10 +3,9 @@ package TowerDefense;
 import org.newdawn.slick.opengl.Texture;
 
 import java.util.ArrayList;
-
+import static TowerDefense.Game.TILE_SIZE;
 import static Util.Clock.*;
 import static Util.Artist.*;
-import static sun.dc.pr.Rasterizer.TILE_SIZE;
 
 public class TowerCannon {
     float x,y, timeSinceLastShot, fireRate, angel ;

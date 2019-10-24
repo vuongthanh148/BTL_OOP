@@ -6,8 +6,8 @@ import org.lwjgl.input.Mouse;
 
 import java.util.ArrayList;
 
+import static TowerDefense.Game.TILE_SIZE;
 import static Util.Artist.*;
-import static sun.dc.pr.Rasterizer.TILE_SIZE;
 
 public class Player {
     private TileGrid grid;

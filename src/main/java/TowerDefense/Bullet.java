@@ -2,9 +2,9 @@ package TowerDefense;
 
 import org.newdawn.slick.opengl.Texture;
 
+import static TowerDefense.Game.TILE_SIZE;
 import static Util.Clock.*;
 import static Util.Artist.*;
-import static sun.dc.pr.Rasterizer.TILE_SIZE;
 
 public class Bullet {
     private Texture texture;
@@ -31,7 +31,7 @@ public class Bullet {
     }
 
     public void draw(){
-            DrawQuadTex(texture, x,y,TILE_SIZE,TILE_SIZE);
+            DrawQuadTex(texture, x,y,TILE_SIZE/2,TILE_SIZE/2);
     }
 
     private void calculateDirection(){

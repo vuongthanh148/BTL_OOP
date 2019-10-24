@@ -3,8 +3,8 @@ package TowerDefense;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static TowerDefense.Game.TILE_SIZE;
 import static Util.Clock.Delta;
-import static sun.dc.pr.Rasterizer.TILE_SIZE;
 
 public class Wave {
     private float timeSinceLastSpawn, spawnTime;
@@ -32,15 +32,13 @@ public class Wave {
                 timeSinceLastSpawn = 0;
             }
         }
-
-
         for(Enemy e: enemyList){
             if(e.isAlive()) {
                 allEnemiesDead = false;
                 e.Update();
                 e.Draw();
             }
-            else enemyList.remove(e);
+            //else enemyList.remove(0);
         }
         if(allEnemiesDead) waveCompleted = true;
     }

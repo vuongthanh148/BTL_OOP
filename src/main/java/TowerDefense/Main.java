@@ -18,7 +18,7 @@ public class Main {
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0},
-                {0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0},
+                {0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
         };
         TileGrid grid = new TileGrid(map);
@@ -26,8 +26,8 @@ public class Main {
         while(!Display.isCloseRequested()){
             Clock.Update();
 
-            //game.Update();
-            StateManager.update();
+            game.Update();
+            //StateManager.update();
 
             Display.update();
             Display.sync(60);
