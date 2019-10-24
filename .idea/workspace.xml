@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BuildServerSettings">
+    <option name="LOGIN" value="" />
+    <option name="SERVER_URL" value="http://buildserver" />
+    <option name="REMEMBER_ME" value="true" />
+    <option name="USE_IDEA_PROXY_SETTINGS" value="true" />
+    <option name="INSPECTIONS_BUILD_TYPE_IDS" />
+    <option name="DUPLICATES_BUILD_TYPE_IDS" />
+    <option name="COVERAGE_SETTINGS" />
+    <option name="TEST_STATUS_ENABLED" value="true" />
+    <option name="TEST_STATUS_SHOW_SUCCESSFUL" value="false" />
+    <option name="POSTPONE_SUITABLE_CONFIGURATIONS_SEARCH" value="false" />
+    <option name="ARTIFACTS_BUILD_TYPE_IDS" />
+    <option name="PERFORM_COMMIT_IF_SUCCESSFUL" value="true" />
+    <option name="PERFORM_COMMIT_IF_NO_NEW_FAILED_TESTS" value="false" />
+    <option name="REQUEST_CONFIRMATON" value="false" />
+    <option name="PRE_TESTED_COMMIT" value="true" />
+    <option name="FILTER_BY_STATUS" value="false" />
+    <option name="FILTER_MARKED_AS_FIXED" value="false" />
+    <option name="SHOW_CLOSE_PROMPT" value="true" />
+    <option name="TOOL_WINDOW_SELECTED_CONTENT_INDEX" value="0" />
+    <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
+    <option name="showStatusBarWidget" value="true" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb5036dd-299b-414a-bcd7-28020f9ccfe7" name="Default Changelist" comment="">
+    <list default="true" id="bb5036dd-299b-414a-bcd7-28020f9ccfe7" name="Default Changelist" comment="add more Enemy">
+      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/BossEnemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/NormalEnemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/SmallEnemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TankerEnemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Util/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/Artist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Util/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/Clock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TileGrid.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TileGrid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TileType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TileType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Util/Artist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Util/Artist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Util/Clock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Util/Clock.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +57,11 @@
     </option>
   </component>
   <component name="ProjectId" id="1RxivZxxBZedtOF1HDkWd7txJK3" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../java-tower-defense" />
