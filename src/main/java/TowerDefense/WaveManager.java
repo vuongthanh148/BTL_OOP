@@ -5,13 +5,14 @@ import java.util.ArrayList;
 public class WaveManager {
     private float timeSinceLastWave, timeBetweenEnemies;
     private int waveNumber, enemiesPerWave;
-    private Enemy enemyType;
+    private Enemy[] enemyTypes;
     private Wave currentWave;
+    private TileGrid grid;
 
-    public WaveManager(Enemy enemyType, float timeBetweenEnemies, int enemiesPerWave ) {
+    public WaveManager(Enemy[] enemyTypes, float timeBetweenEnemies, int enemiesPerWave ) {
         this.enemiesPerWave = enemiesPerWave;
         this.timeBetweenEnemies = timeBetweenEnemies;
-        this.enemyType = enemyType;
+        this.enemyTypes = enemyTypes;
         this.timeSinceLastWave = 0;
         this.waveNumber = 0;
 
@@ -26,7 +27,7 @@ public class WaveManager {
     }
 
     private void newWave(){
-        currentWave = new Wave(enemyType, timeBetweenEnemies, enemiesPerWave);
+        currentWave = new Wave(enemyTypes, timeBetweenEnemies, enemiesPerWave);
         waveNumber++;
         System.out.println("Beginning Wave: " + waveNumber);
     }

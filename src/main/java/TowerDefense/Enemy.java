@@ -79,7 +79,7 @@ public class Enemy {
             oldY = (int) y;
             System.out.println("found");
         }
-        System.out.println("x: "+ (int) x + " oldX: " + oldX + " y: " + (int) y + " oldY: " + oldY );
+        //System.out.println("x: "+ (int) x + " oldX: " + oldX + " y: " + (int) y + " oldY: " + oldY );
         if(directions[0] != 3 ){
             x += Delta()*directions[0]*speed;
             y += Delta()*directions[1]*speed;

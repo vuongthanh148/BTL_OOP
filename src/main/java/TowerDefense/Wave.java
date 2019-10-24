@@ -1,19 +1,20 @@
 package TowerDefense;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import static Util.Clock.Delta;
 
 public class Wave {
     private float timeSinceLastSpawn, spawnTime;
-    private Enemy enemyType;
+    private Enemy[] enemyTypes;
     private ArrayList<Enemy> enemyList;
     private int enemiesPerWave;
     private boolean waveCompleted;
 
-    public Wave(Enemy enemyType, float spawnTime, int enemiesPerWave ) {
+    public Wave(Enemy[] enemyTypes, float spawnTime, int enemiesPerWave ) {
         this.spawnTime = spawnTime;
-        this.enemyType = enemyType;
+        this.enemyTypes = enemyTypes;
         timeSinceLastSpawn = 0;
         enemyList = new ArrayList<Enemy>();
         this.enemiesPerWave = enemiesPerWave;
@@ -38,13 +39,17 @@ public class Wave {
                 e.Update();
                 e.Draw();
             }
+            else enemyList.remove(e);
         }
         if(allEnemiesDead) waveCompleted = true;
     }
 
     public void Spawn(){
-        enemyList.add(new Enemy(enemyType.getTexture(),enemyType.getStartTile(), enemyType.getTileGrid(),
-                64,64, enemyType.getHealth(), enemyType.getSpeed()));
+        int index = 0;
+        Random r = new Random();
+        index = r.nextInt(3);
+        enemyList.add(new Enemy(enemyTypes[index].getTexture(),enemyTypes[index].getStartTile(), enemyTypes[index].getTileGrid(),
+                64,64, enemyTypes[index].getHealth(), enemyTypes[index].getSpeed()));
     }
 
     public boolean isCompleted(){
