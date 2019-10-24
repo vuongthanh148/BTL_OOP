@@ -25,12 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb5036dd-299b-414a-bcd7-28020f9ccfe7" name="Default Changelist" comment="add more Enemy">
-      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/BossEnemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/NormalEnemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/SmallEnemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TankerEnemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
