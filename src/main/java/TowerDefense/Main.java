@@ -18,15 +18,16 @@ public class Main {
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0},
-                {0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0},
+                {0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
         };
-        //Game game = new Game(map);
+        TileGrid grid = new TileGrid(map);
+        Game game = new Game(grid);
         while(!Display.isCloseRequested()){
             Clock.Update();
 
-            //game.Update();
-            StateManager.update();
+            game.Update();
+            //StateManager.update();
 
             Display.update();
             Display.sync(60);

@@ -25,24 +25,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb5036dd-299b-414a-bcd7-28020f9ccfe7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Editor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/Button.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/StateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/StateManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TileGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TileGrid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerCannon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Wave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Wave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Bullet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TowerCannon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TowerCannon.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -61,9 +63,6 @@
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
-  </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1RxivZxxBZedtOF1HDkWd7txJK3" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -155,14 +154,6 @@
       <workItem from="1571755269184" duration="3371000" />
       <workItem from="1571804632334" duration="8073000" />
     </task>
-    <task id="LOCAL-00001" summary="add more Enemy">
-      <created>1571894368603</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1571894368603</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,23 +173,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/OOP_BTL" />
       <path value="$PROJECT_DIR$/testREPO" />
     </ignored-roots>
-    <MESSAGE value="add more Enemy" />
-    <option name="LAST_COMMIT_MESSAGE" value="add more Enemy" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/TowerDefense/MainMenu.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

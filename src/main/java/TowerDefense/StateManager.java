@@ -9,7 +9,7 @@ public class StateManager {
     public static GameState gameState = GameState.MAINMENU;
     public static MainMenu mainMenu;
     public static Game game;
-    public static Editor editor;
+    //public static Editor editor;
 
     static int[][] map={
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
