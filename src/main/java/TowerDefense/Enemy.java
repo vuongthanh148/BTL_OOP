@@ -6,12 +6,14 @@ import org.newdawn.slick.opengl.Texture;
 
 import java.util.ArrayList;
 
+import static TowerDefense.Game.TILE_SIZE;
 import static Util.Artist.*;
 import static Util.Clock.*;
-import static sun.dc.pr.Rasterizer.TILE_SIZE;
+
 
 public class Enemy implements Entity  {
-    public int height = 64, width = 64, currentCheckpoint,oldX, oldY;
+    public int height = TILE_SIZE, width = TILE_SIZE, currentCheckpoint,oldX, oldY;
+
     float speed,x,y,health, startHealth;
     Texture texture, healthBackground, healthForeground, healthBroder ;// thêm thuộc tính thanh sức khỏe
     public Tile startTile;
@@ -48,8 +50,8 @@ public class Enemy implements Entity  {
         this.x = x;
         this.y = y;
         this.grid = grid;
-        this.width = 64;
-        this.height = 64;
+        this.width = TILE_SIZE;
+        this.height = TILE_SIZE;
         this.directions = new int[2];
         this.oldX = 0;
         this.oldY = 0;
@@ -63,8 +65,8 @@ public class Enemy implements Entity  {
     public void draw(){
         float healthPercentage = health/ startHealth;
         DrawQuadTex(texture,x,y,width,height);
-        DrawQuadTex(healthForeground,x,y-16,TILE_SIZE* healthPercentage,8);
-        DrawQuadTex(healthBackground,x,y -16,width,8);
+        DrawQuadTex(healthForeground,x,y - 16,TILE_SIZE* healthPercentage,8);
+        DrawQuadTex(healthBackground,x,y - 16,width,8);
 
         DrawQuadTex(healthBroder,x,y-16,width,8);
     }
@@ -83,8 +85,8 @@ public class Enemy implements Entity  {
                 y += Delta() * checkpoints.get(currentCheckpoint).getyDir() * speed;
             }
         }*/
-        if(Math.abs((int) x - oldX) >= 64 || Math.abs((int) y - oldY) >= 64) {
-            directions = FindNextDir(grid.getTile((int) x / 64, (int) y / 64 ));
+        if(Math.abs((int) x - oldX) >= TILE_SIZE || Math.abs((int) y - oldY) >= TILE_SIZE) {
+            directions = FindNextDir(grid.getTile((int) x / TILE_SIZE, (int) y / TILE_SIZE ));
             oldX = (int) x;
             oldY = (int) y;
             System.out.println("found");
