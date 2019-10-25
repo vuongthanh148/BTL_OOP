@@ -1,52 +1,57 @@
 package TowerDefense;
 
-import Util.Clock;
+import Util.Artist;
+
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
-import java.util.Queue;
 
+import static TowerDefense.Game.TILE_SIZE;
 import static Util.Artist.HEIGHT;
-import static Util.Artist.QuickLoad;
+
 
 public class Editor {
     private TileGrid grid;
     private int index;
     private TileType[] types;
+    private int cur = 0;
 
     public Editor() {
         grid = new TileGrid();
-        this.index = 0;
+        this.cur = 0;
+        this.types = new TileType[3];
+        this.types[0] = TileType.Grass;
+        this.types[1] = TileType.Dirt;
+        this.types[2] = TileType.Water;
     }
 
     public void update() {
         grid.DrawGrid();
-        // Handle Mouse input
-        if (Mouse.isButtonDown(0)) {
+        //Handle Mouse
+        //Set the Tower
+        if(Mouse.isButtonDown(0)){
             setTile();
         }
-        // Handle Keyboard Input
-        while (Keyboard.next()) {
-            if (Keyboard.getEventKey() == Keyboard.KEY_RIGHT && Keyboard.getEventKeyState()) {
-                Clock.ChangeMultiplier((int) 0.2f);
-            }
-            if (Keyboard.getEventKey() == Keyboard.KEY_LEFT && Keyboard.getEventKeyState()) {
-                Clock.ChangeMultiplier((int) -0.2f);
-            }
-            if (Keyboard.getEventKey() == Keyboard.KEY_T && Keyboard.getEventKeyState()) {
-                towerList.add(new TowerCannon(QuickLoad("cannonBase"), grid.getTile(18,9), 10, waveManager.getCurrentWave().getEnemyList()));
+
+        //Handle Keyboard
+        while(Keyboard.next()){
+            if(Keyboard.getEventKeyState()){
+                switch ((Keyboard.getEventKey())){
+                    case Keyboard.KEY_C:
+                        cur = 0;
+                        break;
+                    case Keyboard.KEY_D:
+                        cur = 1;
+                        break;
+                    case Keyboard.KEY_N:
+                        cur = 2;
+                        break;
+                }
             }
         }
     }
 
     private void setTile() {
-        grid.setTile((int) Math.floor(Mouse.getX() / 64), (int) Math.floor((HEIGHT - Mouse.getY() - 1) / 64, types[index]);
-    }
-
-    private void moveIndex() {
-        index++;
-        if (index >types.length - 1) {
-            index = 0;
-        }
+        grid.setTile((int) Math.floor(Mouse.getX() / TILE_SIZE), (int) Math.floor((HEIGHT - Mouse.getY() - 1) / TILE_SIZE), types[cur]);
     }
 }

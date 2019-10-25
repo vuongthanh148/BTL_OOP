@@ -9,7 +9,7 @@ public class TileGrid {
 
     public Tile[][] map;
 
-    public TileGrid(){
+    public TileGrid(){ // Ham khoi tao set toan bo map la co? =))
         map = new Tile[Artist.WIDTH / TILE_SIZE][Artist.HEIGHT / TILE_SIZE];
         for(int i=0;i<map.length;i++) {
             for (int j = 0; j < map[i].length; j++) {

@@ -34,7 +34,7 @@ public class Player {
     }
 
     public void update(){
-
+        //leftMouseDown = false;
         for(TowerCannon t: towerList){
             t.update();
         }
