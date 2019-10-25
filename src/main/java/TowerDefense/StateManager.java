@@ -9,7 +9,7 @@ public class StateManager {
     public static GameState gameState = GameState.MAINMENU;
     public static MainMenu mainMenu;
     public static Game game;
-    //public static Editor editor;
+    public static Editor editor;
 
     static int[][] map={
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -20,7 +20,7 @@ public class StateManager {
             {0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0},
-            {0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0},
+            {0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
     };
 
@@ -36,6 +36,7 @@ public class StateManager {
                 if (game == null){
                     game = new Game(map);
                 }
+                game.Update();
                 break;
             case EDITOR:
                 if (editor == null) editor = new Editor();

@@ -21,11 +21,16 @@ public class Game {
     }
 
 
-    /*public Game(int[][] map){
+    public Game(int[][] map){
         grid = new TileGrid(map);
-        waveManager = new WaveManager(enemyTypes, 1, 5);
+        enemyTypes = new Enemy[4];
+        enemyTypes[0] = new NormalEnemy(2,8,grid);
+        enemyTypes[1] = new SmallEnemy(2,8,grid);
+        enemyTypes[2] = new TankerEnemy(2,8,grid);
+        enemyTypes[3] = new BossEnemy(2,8,grid);
+        waveManager = new WaveManager(enemyTypes,2, 7);
         player = new Player(grid, waveManager);
-    }*/
+    }
 
     public void Update(){
         grid.DrawGrid();
