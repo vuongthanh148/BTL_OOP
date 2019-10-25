@@ -25,13 +25,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb5036dd-299b-414a-bcd7-28020f9ccfe7" name="Default Changelist" comment="">
-
-      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TileTower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Tower.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerCannonBlue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Wave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Wave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TileTower.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Tower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Tower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerCannon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TileGrid.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TileGrid.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TileTower.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Tower.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Tower.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TowerCannon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TowerCannon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Wave.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Wave.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +51,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -159,6 +168,31 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:C:/Users/Admin/Documents/GitHub/BTL_OOP/target" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -167,6 +201,11 @@
           </value>
         </entry>
       </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
