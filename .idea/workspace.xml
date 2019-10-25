@@ -25,6 +25,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb5036dd-299b-414a-bcd7-28020f9ccfe7" name="Default Changelist" comment="">
+
       <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Entity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TileTower.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Tower.java" afterDir="false" />
@@ -70,7 +71,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -148,6 +149,7 @@
       <workItem from="1571724679856" duration="3623000" />
       <workItem from="1571755269184" duration="3371000" />
       <workItem from="1571804632334" duration="8073000" />
+      <workItem from="1571975181343" duration="808000" />
     </task>
     <servers />
   </component>

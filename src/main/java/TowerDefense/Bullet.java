@@ -2,6 +2,7 @@ package TowerDefense;
 
 import org.newdawn.slick.opengl.Texture;
 
+import static TowerDefense.Game.TILE_SIZE;
 import static Util.Clock.*;
 import static Util.Artist.*;
 
@@ -30,13 +31,13 @@ public class Bullet {
     }
 
     public void draw(){
-            DrawQuadTex(texture, x,y,32,32);
+            DrawQuadTex(texture, x,y,TILE_SIZE/2,TILE_SIZE/2);
     }
 
     private void calculateDirection(){
         float totalVelocity = 1.0f;
-        float xDistanceFromTarget = Math.abs(target.getX() - x);
-        float yDistanceFromTarget = Math.abs(target.getY() - y);
+        float xDistanceFromTarget = Math.abs(target.getX() - x + TILE_SIZE / 4); // Aiming to center of enemy
+        float yDistanceFromTarget = Math.abs(target.getY() - y + TILE_SIZE / 4); // Aiming to center of enemy
         float totalDistance = xDistanceFromTarget + yDistanceFromTarget;
         xVelocity = xDistanceFromTarget/totalDistance;
         yVelocity = totalVelocity - xVelocity;
