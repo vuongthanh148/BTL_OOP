@@ -14,8 +14,8 @@ public class Player {
     private TileType[] types;
     private int cur;
     private WaveManager waveManager;
-    private ArrayList<TowerCannon> towerList;
-    boolean leftMouseDown = false;
+    private ArrayList<Tower> towerList;
+    boolean leftMouseDown = false, rightMouseButtonDown = false;
 
 
     public Player(TileGrid grid, WaveManager waveManager) {
@@ -26,7 +26,7 @@ public class Player {
         this.types[2] = TileType.Water;
         this.cur = 0;
         this.waveManager = waveManager;
-        this.towerList = new ArrayList<TowerCannon>();
+        this.towerList = new ArrayList<Tower>();
     }
 
     public void setTile(){
@@ -35,17 +35,23 @@ public class Player {
 
     public void update(){
         //leftMouseDown = false;
-        for(TowerCannon t: towerList){
+        for(Tower t: towerList){
             t.update();
+            t.draw();
+            t.updateEnemyList(waveManager.getCurrentWave().getEnemyList());
         }
 
         //Handle Mouse
         //Set the Tower
         if(Mouse.isButtonDown(0) && !leftMouseDown){
-            towerList.add(new TowerCannon(QuickLoad("cannonBase.png"), grid.getTile(Mouse.getX()/ TILE_SIZE,(Artist.HEIGHT - Mouse.getY())/ TILE_SIZE),10, waveManager.getCurrentWave().getEnemyList()));
+            towerList.add(new TowerCannonBlue(TowerType.CannonRed, grid.getTile(Mouse.getX()/ TILE_SIZE,(Artist.HEIGHT - Mouse.getY())/ TILE_SIZE), waveManager.getCurrentWave().getEnemyList()));
+        }
+        if(Mouse.isButtonDown(1) && !rightMouseButtonDown){
+            towerList.add(new TowerCannonBlue(TowerType.CannonSniper, grid.getTile(Mouse.getX()/ TILE_SIZE,(Artist.HEIGHT - Mouse.getY())/ TILE_SIZE), waveManager.getCurrentWave().getEnemyList()));
         }
 
         leftMouseDown = Mouse.isButtonDown(0);
+        rightMouseButtonDown = Mouse.isButtonDown(1);
 
         //Handle Keyboard
         while(Keyboard.next()){
