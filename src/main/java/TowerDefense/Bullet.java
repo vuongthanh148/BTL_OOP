@@ -8,14 +8,17 @@ import static Util.Artist.*;
 
 public class Bullet {
     private Texture texture;
-    float x,y,speed, xVelocity, yVelocity;
+    public float x,y,speed, xVelocity, yVelocity, width, height;
     int damage;
     private Enemy target;
+    boolean alive = true;
 
-    public Bullet(Texture texture, Enemy target, float x, float y, float speed, int damage) {
+    public Bullet(Texture texture, Enemy target, float x, float y, float width, float height, float speed, int damage) {
         this.texture = texture;
         this.x = x;
         this.y = y;
+        this.width = width;
+        this.height = height;
         this.speed = speed;
         this.damage = damage;
         this.target = target;
@@ -24,14 +27,20 @@ public class Bullet {
         calculateDirection();
     }
 
-    public void update(){
-        x += xVelocity*Delta()*speed;
-        y += yVelocity*Delta()*speed;
-        draw();
+    public void update() {
+        if (alive) {
+            x += xVelocity * Delta() * speed;
+            y += yVelocity * Delta() * speed;
+            if (target.isCollided(this)){
+                target.takeDamage(damage);
+                alive = false;
+            }
+            draw();
+        }
     }
 
     public void draw(){
-            DrawQuadTex(texture, x,y,TILE_SIZE/2,TILE_SIZE/2);
+            DrawQuadTex(texture, x + 16 ,y + 16,TILE_SIZE/2,TILE_SIZE/2);
     }
 
     private void calculateDirection(){
@@ -44,4 +53,5 @@ public class Bullet {
         if(target.getX() < x) xVelocity*=-1;
         if(target.getY() < y) yVelocity*=-1;
     }
+
 }
