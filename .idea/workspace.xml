@@ -26,19 +26,18 @@
   <component name="ChangeListManager">
     <list default="true" id="bb5036dd-299b-414a-bcd7-28020f9ccfe7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Editor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/StateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/StateManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TileGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TileGrid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerCannon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Wave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Wave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Bullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TowerCannon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TowerCannon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/MainMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/StateManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/StateManager$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/StateManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/StateManager.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +75,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -153,6 +152,7 @@
       <workItem from="1571724679856" duration="3623000" />
       <workItem from="1571755269184" duration="3371000" />
       <workItem from="1571804632334" duration="8073000" />
+      <workItem from="1571975181343" duration="808000" />
     </task>
     <servers />
   </component>
