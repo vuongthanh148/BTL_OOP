@@ -81,7 +81,7 @@ public abstract class Tower implements  Entity {
 
     public void draw(){
         DrawQuadTex(textures[0],x,y,width,height);
-        if(textures.length > 1)
+        if(textures.length >= 1)
             for(int i = 1; i < textures.length; i++){
                 DrawQuadTexRot(textures[i],x,y,width,height,angle );
             }
@@ -111,7 +111,7 @@ public abstract class Tower implements  Entity {
 
     private void Shoot(){
         timeSinceLastShot = 0;
-        bullets.add(new Bullet(QuickLoad("Bullet.png"), target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 5, 10, 2000, 10 )); // sua lai width, height
+        bullets.add(new Bullet(QuickLoad("Bullet.png"), target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 32, 32, 2000, damage )); // sua lai width, height
     }
 
     public void updateEnemyList( ArrayList<Enemy> newList){

@@ -45,10 +45,9 @@ public class Editor {
                     case Keyboard.KEY_N:
                         cur = 2;
                         break;
+                    case Keyboard.KEY_S:
+                        saveMap("mapTest", grid);
                 }
-            }
-            if (Keyboard.getEventKey() == Keyboard.KEY_S && Keyboard.getEventKeyState()) {
-                saveMap("mapTest", grid);
             }
         }
     }

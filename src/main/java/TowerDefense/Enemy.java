@@ -63,10 +63,10 @@ public class Enemy implements Entity  {
     }
 
     public void draw(){
-        float healthPercentage = health/ startHealth;
+        float healthPercentage = health / startHealth;
         DrawQuadTex(texture,x,y,width,height);
-        DrawQuadTex(healthForeground,x,y - 16,width,8);
-        DrawQuadTex(healthBackground,x,y - 16,height* healthPercentage,8);
+        DrawQuadTex(healthBackground,x,y - 16,width,8);
+        DrawQuadTex(healthForeground,x,y - 16,width* healthPercentage,8);
         DrawQuadTex(healthBroder,x,y-16,width,8);
     }
 
@@ -194,8 +194,8 @@ public class Enemy implements Entity  {
 
     public void takeDamage(int damage){
         health -= damage;
+        System.out.println(health);
         if(health <= 0){
-            health = 0;
             Die();
         }
     }

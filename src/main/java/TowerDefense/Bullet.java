@@ -1,6 +1,7 @@
 package TowerDefense;
 
 import Util.Artist;
+import org.lwjgl.Sys;
 import org.newdawn.slick.opengl.Texture;
 
 import static TowerDefense.Game.TILE_SIZE;
@@ -42,7 +43,7 @@ public class Bullet {
     }
 
     public void draw(){
-            DrawQuadTex(texture, x + 16 ,y + 16,TILE_SIZE/2,TILE_SIZE/2);
+            DrawQuadTex(texture, x , y ,width,height);
     }
 
     private void calculateDirection(){
