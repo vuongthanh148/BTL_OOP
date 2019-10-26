@@ -11,7 +11,7 @@ public class TankerEnemy extends Enemy {
     public TankerEnemy(int x, int y, TileGrid grid){
         super(x, y, grid);
         this.texture = QuickLoad("tanker_enemy.png");
-        health = 10;
+        health = 100;
         speed = 100;
     }
 

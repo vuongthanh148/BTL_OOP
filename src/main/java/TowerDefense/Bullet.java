@@ -29,18 +29,20 @@ public class Bullet {
         calculateDirection();
     }
 
-    public void update(){
+    public void update() {
         if (alive) {
             x += xVelocity * Delta() * speed;
             y += yVelocity * Delta() * speed;
-            if (CheckCollision(x, y, width, height, target.getX(), target.getY(), target.getWidth(), target.getHeight()))
+            if (target.isCollided(this)){
+                target.takeDamage(damage);
                 alive = false;
+            }
             draw();
         }
     }
 
     public void draw(){
-            DrawQuadTex(texture, x,y,TILE_SIZE/2,TILE_SIZE/2);
+            DrawQuadTex(texture, x + 16 ,y + 16,TILE_SIZE/2,TILE_SIZE/2);
     }
 
     private void calculateDirection(){
@@ -53,4 +55,5 @@ public class Bullet {
         if(target.getX() < x) xVelocity*=-1;
         if(target.getY() < y) yVelocity*=-1;
     }
+
 }
