@@ -1,17 +1,18 @@
 package TowerDefense;
 
+import Util.Artist;
 import org.newdawn.slick.opengl.Texture;
 
 import static TowerDefense.Game.TILE_SIZE;
-import static Util.Clock.*;
 import static Util.Artist.*;
+import static Util.Clock.*;
 
 public class Bullet {
     private Texture texture;
-    public float x,y,speed, xVelocity, yVelocity, width, height;
+    float x,y,speed, width, height, xVelocity, yVelocity;
     int damage;
     private Enemy target;
-    boolean alive = true;
+    private boolean alive;
 
     public Bullet(Texture texture, Enemy target, float x, float y, float width, float height, float speed, int damage) {
         this.texture = texture;
@@ -22,6 +23,7 @@ public class Bullet {
         this.speed = speed;
         this.damage = damage;
         this.target = target;
+        this.alive = true;
         this.xVelocity = 0f;
         this.yVelocity = 0f;
         calculateDirection();

@@ -40,7 +40,6 @@ public class TowerCannon {
         timeSinceLastShot = 0;
         bullets.add(new Bullet(QuickLoad("Bullet.png"), target, x , y , 32, 32, 2000, 10 ));
     }
-
     public void updateEnemyList(ArrayList<Enemy> newList){
         enemies = newList;
     }
