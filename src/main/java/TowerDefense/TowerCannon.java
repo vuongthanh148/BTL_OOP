@@ -35,7 +35,7 @@ public class TowerCannon {
 
     private void Shoot(){
         timeSinceLastShot = 0;
-        bullets.add(new Bullet(QuickLoad("Bullet.png"), target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 2000, 10 ));
+        bullets.add(new Bullet(QuickLoad("Bullet.png"), target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 5,10,2000, 10 )); // sua lai width, height
     }
 
     public void update(){

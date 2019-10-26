@@ -25,28 +25,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb5036dd-299b-414a-bcd7-28020f9ccfe7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerCannonBlue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Util/Leveler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TileTower.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Editor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TileGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TileGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TileType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Tower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Tower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerCannon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Util/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Bullet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Editor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Editor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TileGrid.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TileGrid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TileTower.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TileType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TileType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Tower.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Tower.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TowerCannon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TowerCannon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Wave.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Wave.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TowerType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TowerType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Util/Artist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Util/Artist.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -67,6 +71,9 @@
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1RxivZxxBZedtOF1HDkWd7txJK3" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">

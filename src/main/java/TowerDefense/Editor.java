@@ -8,6 +8,7 @@ import org.lwjgl.input.Mouse;
 
 import static TowerDefense.Game.TILE_SIZE;
 import static Util.Artist.HEIGHT;
+import static Util.Leveler.*;
 
 
 public class Editor {
@@ -17,7 +18,7 @@ public class Editor {
     private int cur = 0;
 
     public Editor() {
-        grid = new TileGrid();
+        grid = loadMap("newMap");
         this.cur = 0;
         this.types = new TileType[3];
         this.types[0] = TileType.Grass;
@@ -27,8 +28,6 @@ public class Editor {
 
     public void update() {
         grid.DrawGrid();
-        //Handle Mouse
-        //Set the Tower
         if(Mouse.isButtonDown(0)){
             setTile();
         }
@@ -47,6 +46,9 @@ public class Editor {
                         cur = 2;
                         break;
                 }
+            }
+            if (Keyboard.getEventKey() == Keyboard.KEY_S && Keyboard.getEventKeyState()) {
+                saveMap("mapTest", grid);
             }
         }
     }
