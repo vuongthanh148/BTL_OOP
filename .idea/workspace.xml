@@ -24,34 +24,7 @@
     <option name="showStatusBarWidget" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb5036dd-299b-414a-bcd7-28020f9ccfe7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/BossEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/BossEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/NormalEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/NormalEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/SmallEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/SmallEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TankerEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TankerEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/Tower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/Tower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerCannon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TowerDefense/TowerType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Util/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/Artist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Util/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/Clock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dirt_0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/oldgrass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/BossEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/BossEnemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Bullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/NormalEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/NormalEnemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/SmallEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/SmallEnemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TankerEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TankerEnemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/Tower.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/Tower.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TowerCannon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TowerCannon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TowerDefense/TowerType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TowerDefense/TowerType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dirt_0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/oldgrass.png" beforeDir="false" />
-    </list>
+    <list default="true" id="bb5036dd-299b-414a-bcd7-28020f9ccfe7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +142,7 @@
       <workItem from="1571755269184" duration="3371000" />
       <workItem from="1571804632334" duration="8073000" />
       <workItem from="1571975181343" duration="808000" />
+      <workItem from="1572075069456" duration="256000" />
     </task>
     <servers />
   </component>
