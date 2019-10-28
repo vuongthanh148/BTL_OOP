@@ -63,11 +63,10 @@ public class Enemy implements Entity  {
     }
 
     public void draw(){
-        float healthPercentage = health/ startHealth;
+        float healthPercentage = health / startHealth;
         DrawQuadTex(texture,x,y,width,height);
-        DrawQuadTex(healthForeground,x,y - 16,TILE_SIZE* healthPercentage,8);
         DrawQuadTex(healthBackground,x,y - 16,width,8);
-
+        DrawQuadTex(healthForeground,x,y - 16,width* healthPercentage,8);
         DrawQuadTex(healthBroder,x,y-16,width,8);
     }
 
@@ -89,14 +88,19 @@ public class Enemy implements Entity  {
             directions = FindNextDir(grid.getTile((int) x / TILE_SIZE, (int) y / TILE_SIZE ));
             oldX = (int) x;
             oldY = (int) y;
-            System.out.println("found");
+            //System.out.println("found");
         }
-        System.out.println("x: "+ (int) x + " oldX: " + oldX + " y: " + (int) y + " oldY: " + oldY );
+        //System.out.println("x: "+ (int) x + " oldX: " + oldX + " y: " + (int) y + " oldY: " + oldY );
         if(directions[0] != 3 ){
             x += Delta()*directions[0]*speed;
             y += Delta()*directions[1]*speed;
         }
         else Die();
+    }
+
+    boolean isCollided(Bullet b){
+        if(b.x + b.width > this.x && b.x < this.x + this.width && b.y + b.height > this.y && b.y < this.y + this.height) return true;
+        return false;
     }
 
     //////////////////////////////////////////////////////////
@@ -186,6 +190,14 @@ public class Enemy implements Entity  {
             dir[1] = 3;
         }
         return dir;
+    }
+
+    public void takeDamage(int damage){
+        health -= damage;
+        System.out.println(health);
+        if(health <= 0){
+            Die();
+        }
     }
 
     public boolean isAlive(){

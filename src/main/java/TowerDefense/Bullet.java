@@ -1,37 +1,49 @@
 package TowerDefense;
 
+import Util.Artist;
+import org.lwjgl.Sys;
 import org.newdawn.slick.opengl.Texture;
 
 import static TowerDefense.Game.TILE_SIZE;
-import static Util.Clock.*;
 import static Util.Artist.*;
+import static Util.Clock.*;
 
 public class Bullet {
     private Texture texture;
-    float x,y,speed, xVelocity, yVelocity;
+    float x,y,speed, width, height, xVelocity, yVelocity;
     int damage;
     private Enemy target;
+    private boolean alive;
 
-    public Bullet(Texture texture, Enemy target, float x, float y, float speed, int damage) {
+    public Bullet(Texture texture, Enemy target, float x, float y, float width, float height, float speed, int damage) {
         this.texture = texture;
         this.x = x;
         this.y = y;
+        this.width = width;
+        this.height = height;
         this.speed = speed;
         this.damage = damage;
         this.target = target;
+        this.alive = true;
         this.xVelocity = 0f;
         this.yVelocity = 0f;
         calculateDirection();
     }
 
-    public void update(){
-        x += xVelocity*Delta()*speed;
-        y += yVelocity*Delta()*speed;
-        draw();
+    public void update() {
+        if (alive) {
+            x += xVelocity * Delta() * speed;
+            y += yVelocity * Delta() * speed;
+            if (target.isCollided(this)){
+                target.takeDamage(damage);
+                alive = false;
+            }
+            draw();
+        }
     }
 
     public void draw(){
-            DrawQuadTex(texture, x,y,TILE_SIZE/2,TILE_SIZE/2);
+            DrawQuadTex(texture, x , y ,width,height);
     }
 
     private void calculateDirection(){
@@ -44,4 +56,5 @@ public class Bullet {
         if(target.getX() < x) xVelocity*=-1;
         if(target.getY() < y) yVelocity*=-1;
     }
+
 }

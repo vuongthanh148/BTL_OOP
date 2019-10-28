@@ -15,7 +15,7 @@ public abstract class Tower implements  Entity {
     private Texture[] textures;
     private ArrayList<Enemy> enemies;
     private ArrayList<Bullet> bullets;
-    private boolean targeted;
+    private boolean foundTarget, outOfRange;
 
 
     public Tower(TowerType type, Tile startTile, ArrayList<Enemy> enemies)  {
@@ -27,11 +27,12 @@ public abstract class Tower implements  Entity {
         this.damage = type.damage;
         this.range = type.range;
         this.enemies = enemies;
-        this.targeted= false;
+        this.foundTarget= false;
         this.timeSinceLastShot = 0f;
         this.bullets = new ArrayList<Bullet>();
         this.firingSpeed = type.firingSpeed;
         this.angle = 0f;
+        this.outOfRange = false;
     }
 
     public float getX() {
@@ -46,9 +47,7 @@ public abstract class Tower implements  Entity {
         return width;
     }
 
-    public int getHeight() {
-        return height;
-    }
+    public int getHeight() { return height; }
 
     public void setX(float x) {
         this.x=x;
@@ -65,64 +64,56 @@ public abstract class Tower implements  Entity {
     public void setHeight(int height) {
         this.height = height;
     }
-    public void update() {
-        if(!targeted){
-            target = acquireTarget();
-        }
-        if( target == null || target.isAlive() == false)
-            targeted = false;
-        timeSinceLastShot += Delta();
-        if( timeSinceLastShot > firingSpeed)
-            Shoot();
-        for( Bullet b: bullets)
-            b.update();
-        angle = calculateAngel();
-        draw();
 
+    public void update() {
+        if(!foundTarget || outOfRange){
+            target = findTarget();
+        }
+        if( target == null || !target.isAlive()) foundTarget = false;
+        else {
+            timeSinceLastShot += Delta();
+            if (timeSinceLastShot > firingSpeed) Shoot();
+            for (Bullet b : bullets) b.update();
+            angle = calculateAngel();
+        }
+        draw();
     }
 
-
-    public void draw() {
-        DrawQuadTex(textures[0],x,y,width,height );
-        if(textures.length > 1)
-            for(int i = 0; i < textures.length; i++){
+    public void draw(){
+        DrawQuadTex(textures[0],x,y,width,height);
+        if(textures.length >= 1)
+            for(int i = 1; i < textures.length; i++){
                 DrawQuadTexRot(textures[i],x,y,width,height,angle );
             }
-
     }
-    private Enemy acquireTarget(){
-        Enemy closest = null;
-        float closestDistance = 100000;
-        for( Enemy e: enemies){
-            if(isInRange(e) && findDistance(e) < closestDistance){
-                closestDistance = findDistance(e);
-                closest = e;
-            }
-            if(closest != null)
-                targeted = true;
 
+    private Enemy findTarget(){ //Aiming to enemy || DONT TOUCH THIS || :D
+        Enemy closest = null;
+        float minDistance = 10000;
+        for( Enemy e: enemies){
+            if( e.isAlive() && Math.abs(e.getX() - x) + Math.abs(e.getY() - y) < minDistance ){
+                if(Math.abs(e.getX() - x) < range && Math.abs(e.getY() - y) < range)
+                {
+                    closest = e;
+                    minDistance = Math.abs(e.getX() - x) + Math.abs(e.getY() - y);
+                }
+                else outOfRange = true;
+            }
         }
+        if(closest != null)
+            foundTarget = true;
         return closest;
     }
-    private boolean isInRange(Enemy e){
-        float xDistance = Math.abs(e.getX() - x);
-        float yDistance = Math.abs(e.getY() - y);
-        if( xDistance < range && yDistance < range)
-            return true;
-        return false;
-    }
-    private float findDistance(Enemy e){
-        float xDistance = Math.abs(e.getX() - x);
-        float yDistance = Math.abs(e.getY() - y);
-        return xDistance + yDistance;
-    }
+
     private float calculateAngel(){
         return  (float) Math.toDegrees(Math.atan2(target.getY() - y, target.getX() - x)) - 90;
     }
+
     private void Shoot(){
         timeSinceLastShot = 0;
-        bullets.add(new Bullet(QuickLoad("Bullet.png"), target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 2000, 10 ));
+        bullets.add(new Bullet(QuickLoad("Bullet.png"), target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 32, 32, 2000, damage )); // sua lai width, height
     }
+
     public void updateEnemyList( ArrayList<Enemy> newList){
         enemies = newList;
     }

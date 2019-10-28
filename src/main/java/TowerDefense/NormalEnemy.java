@@ -11,7 +11,7 @@ public class NormalEnemy extends Enemy {
     public NormalEnemy(int x, int y, TileGrid grid){
         super(x, y, grid);
         this.texture = QuickLoad("normal_enemy.png");
-        health = 10;
+        health = 50;
         speed = 100;
     }
 
