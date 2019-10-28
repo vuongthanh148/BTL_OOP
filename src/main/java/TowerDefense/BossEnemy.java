@@ -13,6 +13,7 @@ public class BossEnemy extends Enemy {
         this.texture = QuickLoad("boss_enemy.png");
         health = 100;
         speed = 70;
+        reward = 10;
     }
 
 }
