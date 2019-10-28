@@ -30,11 +30,12 @@ public class Game {
         enemyTypes[3] = new BossEnemy(2,8,grid);
         waveManager = new WaveManager(enemyTypes,2, 7);
         player = new Player(grid, waveManager);
+        player.init();
     }
 
     public void Update(){
-        grid.DrawGrid();
-        waveManager.update();
-        player.update();
+        grid.DrawGrid(); // draw map
+        waveManager.update(); // draw enemy
+        player.update(); // draw tower
     }
 }

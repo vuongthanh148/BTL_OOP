@@ -16,6 +16,7 @@ public abstract class Tower implements  Entity {
     private ArrayList<Enemy> enemies;
     private ArrayList<Bullet> bullets;
     private boolean foundTarget, outOfRange;
+    public static int price;
 
 
     public Tower(TowerType type, Tile startTile, ArrayList<Enemy> enemies)  {
@@ -33,6 +34,7 @@ public abstract class Tower implements  Entity {
         this.firingSpeed = type.firingSpeed;
         this.angle = 0f;
         this.outOfRange = false;
+        this.price = price;
     }
 
     public float getX() {

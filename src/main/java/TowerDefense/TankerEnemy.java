@@ -13,6 +13,7 @@ public class TankerEnemy extends Enemy {
         this.texture = QuickLoad("tanker_enemy.png");
         health = 100;
         speed = 100;
+        reward = 10;
     }
 
 }
