@@ -1,8 +1,10 @@
 package TowerDefense;
 
 import Util.Artist;
+import org.lwjgl.input.Mouse;
 
 import static TowerDefense.Game.TILE_SIZE;
+import static Util.Artist.HEIGHT;
 
 
 public class TileGrid {
@@ -49,6 +51,15 @@ public class TileGrid {
     public Tile getTile(int xPlace, int yPlace){
         if(xPlace < Artist.WIDTH/TILE_SIZE && xPlace > -1 && yPlace < Artist.HEIGHT/TILE_SIZE && yPlace > -1)
         return map[xPlace][yPlace];
+        else {
+            Tile tmp = new Tile(0,0,0,0, TileType.Water);
+            return tmp;
+        }
+    }
+
+    public Tile getFloatTile(float xPlace, float yPlace){
+        if(xPlace < Artist.WIDTH && xPlace > -1 && yPlace < Artist.HEIGHT && yPlace > -1)
+            return map[(int)xPlace/TILE_SIZE][(int) (HEIGHT - 1 - yPlace)/ TILE_SIZE];
         else {
             Tile tmp = new Tile(0,0,0,0, TileType.Water);
             return tmp;
