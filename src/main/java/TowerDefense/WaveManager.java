@@ -34,4 +34,11 @@ public class WaveManager {
     public Wave getCurrentWave() {
         return currentWave;
     }
+    public ArrayList<Enemy> getListEnemy(){
+        ArrayList<Enemy> listEnemy = new ArrayList<Enemy>();
+        for(Enemy e:enemyTypes){
+            listEnemy.add(e);
+        }
+        return listEnemy;
+    }
 }

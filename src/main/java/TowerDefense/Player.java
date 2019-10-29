@@ -21,8 +21,9 @@ public class Player {
     private int cur;
     private WaveManager waveManager;
     private ArrayList<Tower> towerList;
-    boolean leftMouseDown = false, rightMouseButtonDown = false;
+    boolean leftMouseDown = false, rightMouseButtonDown = false, holdingTower = false;
     private TrueTypeFont font, font1;
+    private Tower tempTower;
 
 
 
@@ -39,6 +40,7 @@ public class Player {
         Font awtFont = new Font("Times New Roman",Font.BOLD, 30);
         font = new TrueTypeFont(awtFont, true);
         font1 = new TrueTypeFont(awtFont, true);
+        this.tempTower = null;
     }
 
     public void setTile(){
@@ -46,8 +48,8 @@ public class Player {
     }
 
     public void init(){
-        money = 30;
-        lives = 1;
+        money = 50;
+        lives = 3;
     }
 
     public void drawString(){
@@ -57,11 +59,28 @@ public class Player {
         font.drawString(20, 10, m, Color.white);
         font.drawString(250, 10, l, Color.white);
     }
+    public void drawStringTower(TowerType towerType,int x, int y){
+        //Color.white.bind();
+        //setupFontMenuTower();
+        String m = "Price: " + towerType.price ;
+        String l = "Damage: " + towerType.damage;
+        font1.drawString(x, y+30, m, Color.white);
+        font1.drawString(x, y+64, l, Color.white);
+    }
 
 
     public void update(){
         drawString();
+        drawStringTower(TowerType.CannonBase,64,540);
+        drawStringTower(TowerType.CannonSniper,292,540);
+        drawStringTower(TowerType.CannonSpecial,530,540);
         //leftMouseDown = false;
+        //Update holding Tower
+        if(holdingTower){
+            tempTower.setX(getMouseTile().getX());
+            tempTower.setY(getMouseTile().getY());
+            tempTower.draw();
+        }
         for(Tower t: towerList){
             t.update();
             t.draw();
@@ -70,21 +89,17 @@ public class Player {
 
         //Handle Mouse
         //Set the Tower
-        if( Mouse.isButtonDown(0) && !leftMouseDown && !grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced && grid.getFloatTile(Mouse.getX(),Mouse.getY()).getType().buildable){
-            if(money - TowerType.CannonRed.price >= 0){
-                towerList.add(new TowerCannonBlue(TowerType.CannonRed, grid.getFloatTile(Mouse.getX(),Mouse.getY()), waveManager.getCurrentWave().getEnemyList()));
-                money -= TowerType.CannonRed.price;
-                grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced = true;
-            }
+        if( Mouse.isButtonDown(0) && !leftMouseDown && !grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced && grid.getFloatTile(Mouse.getX(),Mouse.getY()).getType().buildable ){
+            placeTower();
         }
 
-        if( Mouse.isButtonDown(1) && !rightMouseButtonDown && !grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced && grid.getFloatTile(Mouse.getX(),Mouse.getY()).getType().buildable){
+        /*if( Mouse.isButtonDown(1) && !rightMouseButtonDown && !grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced && grid.getFloatTile(Mouse.getX(),Mouse.getY()).getType().buildable){
             if(money - TowerType.CannonSniper.price >= 0){
                 towerList.add(new TowerCannonBlue(TowerType.CannonSniper, grid.getFloatTile(Mouse.getX(),Mouse.getY()), waveManager.getCurrentWave().getEnemyList()));
                 money -= TowerType.CannonSniper.price;
                 grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced = true;
             }
-        }
+        }*/
 
         leftMouseDown = Mouse.isButtonDown(0);
         rightMouseButtonDown = Mouse.isButtonDown(1);
@@ -106,6 +121,9 @@ public class Player {
             }
         }
     }
+    public Tile getMouseTile(){
+        return grid.getTile(Mouse.getX()/TILE_SIZE,(HEIGHT - Mouse.getY() -1) / TILE_SIZE);
+    }
 
     public int getMoney() {
         return money;
@@ -113,5 +131,20 @@ public class Player {
 
     public void setMoney(int money) {
         this.money = money;
+    }
+    public void pickTower(Tower tower){
+        tempTower = tower;
+        holdingTower = true;
+    }
+    private void placeTower(){
+        if(holdingTower) {
+            if (money - TowerType.CannonBase.price >= 0) {
+                towerList.add(tempTower);
+                money -= TowerType.CannonBase.price;
+                grid.getFloatTile(Mouse.getX(), Mouse.getY()).isPlaced = true;
+            }
+        }
+        holdingTower = false;
+        tempTower=null;
     }
 }
