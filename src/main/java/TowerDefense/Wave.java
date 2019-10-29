@@ -48,7 +48,7 @@ public class Wave {
         Random r = new Random();
         index = r.nextInt(3);
         enemyList.add(new Enemy(enemyTypes[index].getTexture(),enemyTypes[index].getStartTile(), enemyTypes[index].getTileGrid(),
-                TILE_SIZE,TILE_SIZE, enemyTypes[index].getHealth(), enemyTypes[index].getSpeed()));
+                TILE_SIZE,TILE_SIZE, enemyTypes[index].getHealth(), enemyTypes[index].getSpeed(), enemyTypes[index].getReward()));
     }
 
     public boolean isCompleted(){

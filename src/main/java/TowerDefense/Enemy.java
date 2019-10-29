@@ -4,24 +4,30 @@ import Util.Artist;
 import org.lwjgl.Sys;
 import org.newdawn.slick.opengl.Texture;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 import static TowerDefense.Game.TILE_SIZE;
 import static Util.Artist.*;
 import static Util.Clock.*;
+import static TowerDefense.Player.*;
 
+import org.newdawn.slick.Color;
+import org.newdawn.slick.TrueTypeFont;
+import org.newdawn.slick.util.ResourceLoader;
 
 public class Enemy implements Entity  {
-    public int height = TILE_SIZE, width = TILE_SIZE, currentCheckpoint,oldX, oldY;
-
+    public int height = TILE_SIZE, width = TILE_SIZE, currentCheckpoint,oldX, oldY, reward;
     float speed,x,y,health, startHealth;
     Texture texture, healthBackground, healthForeground, healthBroder ;// thêm thuộc tính thanh sức khỏe
     public Tile startTile;
     public boolean first = true, alive = true;
     public TileGrid grid;
     public int[] directions;
+    //Player player;
 
-    public Enemy(Texture texture, Tile startTile, TileGrid grid, int width, int height,  float health, float speed){
+
+    public Enemy(Texture texture, Tile startTile, TileGrid grid,int width, int height,  float health, float speed, int reward){
         this.texture = texture;
         this.healthBackground = QuickLoad("HealthBackground.PNG");
         this.healthForeground= QuickLoad("HealthForeground.PNG");
@@ -38,6 +44,7 @@ public class Enemy implements Entity  {
         this.directions = new int[2];
         this.oldX = 0;
         this.oldY = 0;
+        this.reward = reward;
         //Xdir
         this.directions[0]=0;
         //YDir
@@ -59,7 +66,6 @@ public class Enemy implements Entity  {
         this.directions[0]=0;
         //YDir
         this.directions[1]=0;
-
     }
 
     public void draw(){
@@ -84,6 +90,8 @@ public class Enemy implements Entity  {
                 y += Delta() * checkpoints.get(currentCheckpoint).getyDir() * speed;
             }
         }*/
+
+
         if(Math.abs((int) x - oldX) >= TILE_SIZE || Math.abs((int) y - oldY) >= TILE_SIZE) {
             directions = FindNextDir(grid.getTile((int) x / TILE_SIZE, (int) y / TILE_SIZE ));
             oldX = (int) x;
@@ -95,7 +103,10 @@ public class Enemy implements Entity  {
             x += Delta()*directions[0]*speed;
             y += Delta()*directions[1]*speed;
         }
-        else Die();
+        else {
+            lives--;
+            Die();
+        }
     }
 
     boolean isCollided(Bullet b){
@@ -196,6 +207,8 @@ public class Enemy implements Entity  {
         health -= damage;
         System.out.println(health);
         if(health <= 0){
+            money += 10;
+            System.out.println("money: " + money);
             Die();
         }
     }
@@ -286,5 +299,13 @@ public class Enemy implements Entity  {
 
     public void setTileGrid(TileGrid grid) {
         this.grid = grid;
+    }
+
+    public int getReward() {
+        return reward;
+    }
+
+    public void setReward(int reward) {
+        this.reward = reward;
     }
 }

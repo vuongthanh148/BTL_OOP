@@ -13,6 +13,7 @@ public class NormalEnemy extends Enemy {
         this.texture = QuickLoad("normal_enemy.png");
         health = 50;
         speed = 100;
+        reward = 10;
     }
 
 }
