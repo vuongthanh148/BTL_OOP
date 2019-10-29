@@ -9,7 +9,7 @@ import static TowerDefense.Game.TILE_SIZE;
 import static Util.Artist.*;
 import static com.sun.deploy.trace.TraceLevel.UI;
 
-public class MainMenu<UI> {
+public class MainMenu {
     private Texture background;
     private UI menuUI;
 
