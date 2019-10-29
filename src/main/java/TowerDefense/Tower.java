@@ -111,13 +111,16 @@ public abstract class Tower implements  Entity {
         return  (float) Math.toDegrees(Math.atan2(target.getY() - y, target.getX() - x)) - 90;
     }
 
-    private void Shoot(){
+    public void Shoot(){
         timeSinceLastShot = 0;
-        bullets.add(new Bullet(QuickLoad("Bullet.png"), target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 32, 32, 2000, damage )); // sua lai width, height
+        bullets.add(new Bullet(QuickLoad("Bullet.png"), target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 32, 32, 2000, damage ));// sua lai width, height
     }
 
     public void updateEnemyList( ArrayList<Enemy> newList){
         enemies = newList;
     }
 
+    public Enemy getTarget() {
+        return target;
+    }
 }
