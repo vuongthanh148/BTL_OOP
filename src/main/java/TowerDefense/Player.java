@@ -47,7 +47,7 @@ public class Player {
 
     public void init(){
         money = 30;
-        lives = 10;
+        lives = 1;
     }
 
     public void drawString(){
@@ -70,19 +70,20 @@ public class Player {
 
         //Handle Mouse
         //Set the Tower
-        if(Mouse.isButtonDown(0) && !leftMouseDown && grid.getTile(Mouse.getX()/ TILE_SIZE,(HEIGHT - Mouse.getY())/ TILE_SIZE).getType().buildable){
+        if( Mouse.isButtonDown(0) && !leftMouseDown && !grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced && grid.getFloatTile(Mouse.getX(),Mouse.getY()).getType().buildable){
             if(money - TowerType.CannonRed.price >= 0){
-                towerList.add(new TowerCannonBlue(TowerType.CannonRed, grid.getTile(Mouse.getX()/ TILE_SIZE,(Artist.HEIGHT - Mouse.getY())/ TILE_SIZE), waveManager.getCurrentWave().getEnemyList()));
+                towerList.add(new TowerCannonBlue(TowerType.CannonRed, grid.getFloatTile(Mouse.getX(),Mouse.getY()), waveManager.getCurrentWave().getEnemyList()));
                 money -= TowerType.CannonRed.price;
+                grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced = true;
             }
-
         }
-        if(Mouse.isButtonDown(1) && !rightMouseButtonDown && grid.getTile(Mouse.getX()/ TILE_SIZE,(HEIGHT - Mouse.getY())/ TILE_SIZE).getType().buildable){
-            if(money - TowerType.CannonSniper.price >= 0){
-                towerList.add(new TowerCannonBlue(TowerType.CannonSniper, grid.getTile(Mouse.getX()/ TILE_SIZE,(Artist.HEIGHT - Mouse.getY())/ TILE_SIZE), waveManager.getCurrentWave().getEnemyList()));
-                money -= TowerType.CannonSniper.price;
-            }
 
+        if( Mouse.isButtonDown(1) && !rightMouseButtonDown && !grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced && grid.getFloatTile(Mouse.getX(),Mouse.getY()).getType().buildable){
+            if(money - TowerType.CannonSniper.price >= 0){
+                towerList.add(new TowerCannonBlue(TowerType.CannonSniper, grid.getFloatTile(Mouse.getX(),Mouse.getY()), waveManager.getCurrentWave().getEnemyList()));
+                money -= TowerType.CannonSniper.price;
+                grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced = true;
+            }
         }
 
         leftMouseDown = Mouse.isButtonDown(0);

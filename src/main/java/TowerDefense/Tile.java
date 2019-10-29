@@ -9,6 +9,7 @@ public class Tile {
     private int width, height;
     private Texture texture;
     private TileType type;
+    public boolean isPlaced = false;
 
     public float getX() {
         return x;
@@ -73,6 +74,7 @@ public class Tile {
         this.height = height;
         this.type = type;
         this.texture = QuickLoad(type.textureName);
+        //this.isPlaced = false;
     }
 
     public void Draw(){
