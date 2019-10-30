@@ -47,7 +47,7 @@ public class Player {
 
     public void init(){
         money = 30;
-        lives = 1;
+        lives = 5;
     }
 
     public void drawString(){
