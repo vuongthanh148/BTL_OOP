@@ -45,6 +45,9 @@ public class Editor {
                     case Keyboard.KEY_N:
                         cur = 2;
                         break;
+                    case Keyboard.KEY_M:
+                        cur = 3;
+                        break;
                     case Keyboard.KEY_S:
                         saveMap("mapTest", grid);
                 }

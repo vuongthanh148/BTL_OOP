@@ -50,8 +50,9 @@ public class Leveler {
         } else if ("2".equals(ID)) {
             type = TileType.Water;
         } else if ("3".equals(ID)) {
-            type = TileType.NULL;
-        }
+            type = TileType.MenuTower;
+        } else if ("4".equals(ID)) {
+            type = TileType.NULL;}
         return type;
     }
 
@@ -67,8 +68,11 @@ public class Leveler {
             case Water:
                 ID = "2";
                 break;
-            case NULL:
+            case MenuTower:
                 ID = "3";
+                break;
+            case NULL:
+                ID = "4";
                 break;
         }
         return ID;

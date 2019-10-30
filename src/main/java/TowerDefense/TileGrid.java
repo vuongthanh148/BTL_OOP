@@ -4,7 +4,7 @@ import Util.Artist;
 import org.lwjgl.input.Mouse;
 
 import static TowerDefense.Game.TILE_SIZE;
-import static Util.Artist.HEIGHT;
+import static Util.Artist.*;
 
 
 public class TileGrid {
@@ -15,19 +15,22 @@ public class TileGrid {
     public TileGrid(){ // Ham khoi tao set toan bo map la co? =))
         this.tilesWide = Artist.WIDTH / TILE_SIZE;
         this.tilesHigh = Artist.HEIGHT / TILE_SIZE;
-        map = new Tile[Artist.WIDTH / TILE_SIZE][Artist.HEIGHT / TILE_SIZE];
+        map = new Tile[Artist.WIDTH / TILE_SIZE ][Artist.HEIGHT / TILE_SIZE];
         for(int i=0;i<map.length;i++) {
-            for (int j = 0; j < map[i].length; j++) {
-                map[i][j] = new Tile(i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, TILE_SIZE, TileType.Grass);
+            int j;
+            for ( j = 0; j < map[i].length-1; j++) {
+                map[i][j] = new Tile(i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, TILE_SIZE, TileType.Water);
             }
+            map[i][j] = new Tile(i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, TILE_SIZE, TileType.MenuTower);
         }
     }
 
     public TileGrid(int[][] newMap) {
         this.tilesWide = newMap[0].length;
-        this.tilesHigh = newMap.length;
+        this.tilesHigh = newMap.length ;
         map = new Tile[tilesWide][tilesHigh];
-        for (int i = 0; i < map.length; i++) {
+        int i;
+        for ( i = 0; i < map.length ; i++) {
             for (int j = 0; j < map[i].length; j++) {
                 switch (newMap[j][i]){
                     case 0:
@@ -39,9 +42,18 @@ public class TileGrid {
                     case 2:
                         map[i][j] = new Tile(i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, TILE_SIZE, TileType.Water);
                         break;
+                    case 3:
+                        map[i][j] = new Tile(i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, TILE_SIZE, TileType.MenuTower);
+                        break;
+
                 }
             }
         }
+
+        /*for (int j = 0; j < map.length; j++){
+                map[ j][map[i].length - 1] = new Tile(i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, TILE_SIZE, TileType.MenuTower);
+        }*/
+
     }
 
     public void setTile(int xCoord, int yCoord, TileType type){
