@@ -52,7 +52,7 @@ public class TileGrid {
         if(xPlace < Artist.WIDTH/TILE_SIZE && xPlace > -1 && yPlace < Artist.HEIGHT/TILE_SIZE && yPlace > -1)
         return map[xPlace][yPlace];
         else {
-            Tile tmp = new Tile(0,0,0,0, TileType.Water);
+            Tile tmp = new Tile(0,0,0,0, TileType.NULL);
             return tmp;
         }
     }

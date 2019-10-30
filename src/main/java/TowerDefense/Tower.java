@@ -77,8 +77,8 @@ public abstract class Tower implements  Entity {
             if (timeSinceLastShot > firingSpeed) Shoot();
             for (Bullet b : bullets) b.update();
             angle = calculateAngel();
+            draw();
         }
-        draw();
     }
 
     public void draw(){
