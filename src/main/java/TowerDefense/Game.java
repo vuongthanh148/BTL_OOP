@@ -44,10 +44,10 @@ public class Game {
 
     private void setupUI(){
         towerPickerUI = new UI();
-        towerPickerUI.addButton("CannonBase","CannonBase.png",0,576,64,64);
+        towerPickerUI.addButton("CannonBase","CannonBase.png",320,640,64,64);
 
-        towerPickerUI.addButton("CannonSniper","CannonSniper.png",228,576,80,100);
-        towerPickerUI.addButton("CannonSpecial","CannonSpecial.png",456,570,80,75);
+        towerPickerUI.addButton("CannonSniper","CannonSniper.png",548,640,80,100);
+        towerPickerUI.addButton("CannonSpecial","CannonSpecial.png",776,634,80,75);
 
     }
     private void updateUI(){
