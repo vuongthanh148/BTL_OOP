@@ -20,12 +20,29 @@ public class Enemy implements Entity  {
     public int height = TILE_SIZE, width = TILE_SIZE, currentCheckpoint,oldX, oldY, reward;
     float speed,x,y,health, startHealth;
     Texture texture, healthBackground, healthForeground, healthBroder ;// thêm thuộc tính thanh sức khỏe
-    public Tile startTile;
+    public static Tile startTile;
     public boolean first = true, alive = true;
     public TileGrid grid;
     public int[] directions;
     //Player player;
 
+    public Enemy(int x, int y, TileGrid grid) {
+        //this.texture = QuickLoad("enemy.png");
+        this.grid = grid;
+        this.startTile = grid.getTile(x,y);
+        this.x = startTile.getX();
+        this.y = startTile.getY();
+        this.grid = grid;
+        this.width = TILE_SIZE;
+        this.height = TILE_SIZE;
+        this.directions = new int[2];
+        this.oldX = 0;
+        this.oldY = 0;
+        //Xdir
+        this.directions[0]=0;
+        //YDir
+        this.directions[1]=0;
+    }
 
     public Enemy(Texture texture, Tile startTile, TileGrid grid,int width, int height,  float health, float speed, int reward){
         this.texture = texture;
@@ -51,22 +68,7 @@ public class Enemy implements Entity  {
         this.directions[1]=0;
     }
 
-    public Enemy(int x, int y, TileGrid grid) {
-        this.grid = grid;
-        this.startTile = grid.getTile(x,y);
-        this.x = x;
-        this.y = y;
-        this.grid = grid;
-        this.width = TILE_SIZE;
-        this.height = TILE_SIZE;
-        this.directions = new int[2];
-        this.oldX = 0;
-        this.oldY = 0;
-        //Xdir
-        this.directions[0]=0;
-        //YDir
-        this.directions[1]=0;
-    }
+
 
     public void draw(){
         float healthPercentage = health / startHealth;
@@ -209,10 +211,9 @@ public class Enemy implements Entity  {
 
     public void takeDamage(int damage){
         health -= damage;
-        System.out.println(health);
+        if(this.getX()/64 < 1 && this.getY()/64 == 8) System.out.println(health);
         if(health <= 0){
             money += 10;
-            System.out.println("money: " + money);
             Die();
         }
     }

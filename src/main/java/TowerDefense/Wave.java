@@ -27,7 +27,7 @@ public class Wave {
         boolean allEnemiesDead = true;
         if(enemyList.size() < enemiesPerWave){
             timeSinceLastSpawn += Delta();
-            if(timeSinceLastSpawn > spawnTime){
+            if(timeSinceLastSpawn >= spawnTime){
                 Spawn();
                 timeSinceLastSpawn = 0;
             }
@@ -44,9 +44,8 @@ public class Wave {
     }
 
     public void Spawn(){
-        int index = 0;
         Random r = new Random();
-        index = r.nextInt(3);
+        int index = r.nextInt(4);
         enemyList.add(new Enemy(enemyTypes[index].getTexture(),enemyTypes[index].getStartTile(), enemyTypes[index].getTileGrid(),
                 TILE_SIZE,TILE_SIZE, enemyTypes[index].getHealth(), enemyTypes[index].getSpeed(), enemyTypes[index].getReward()));
     }

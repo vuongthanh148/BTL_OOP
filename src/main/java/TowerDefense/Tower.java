@@ -4,19 +4,20 @@ import org.newdawn.slick.opengl.Texture;
 
 import java.util.ArrayList;
 
+import static TowerDefense.Enemy.startTile;
 import static TowerDefense.Game.TILE_SIZE;
 import static Util.Artist.*;
 import static Util.Clock.*;
 
 public abstract class Tower implements  Entity {
     private float x,y, timeSinceLastShot, firingSpeed, angle;
-    private int width, height, damage, range;
+    private int width, height, damage, range, price;
     private Enemy target;
     private Texture[] textures;
     private ArrayList<Enemy> enemies;
     private ArrayList<Bullet> bullets;
     private boolean foundTarget, outOfRange;
-    public static int price;
+    public TowerType type;
 
 
     public Tower(TowerType type, Tile startTile, ArrayList<Enemy> enemies)  {
@@ -24,6 +25,7 @@ public abstract class Tower implements  Entity {
         this.y = startTile.getY();
         this.width = startTile.getWidth();
         this.height = startTile.getHeight();
+        this.type = type;
         this.textures = type.textures;
         this.damage = type.damage;
         this.range = type.range;
@@ -34,7 +36,7 @@ public abstract class Tower implements  Entity {
         this.firingSpeed = type.firingSpeed;
         this.angle = 0f;
         this.outOfRange = false;
-        this.price = price;
+        this.price = type.price;
     }
 
     public float getX() {
@@ -67,6 +69,14 @@ public abstract class Tower implements  Entity {
         this.height = height;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public void update() {
         if(!foundTarget || outOfRange){
             target = findTarget();
@@ -94,7 +104,7 @@ public abstract class Tower implements  Entity {
         float minDistance = 10000;
         for( Enemy e: enemies){
             if( e.isAlive() && Math.abs(e.getX() - x) + Math.abs(e.getY() - y) < minDistance ){
-                if(Math.abs(e.getX() - x) < range && Math.abs(e.getY() - y) < range)
+                if(Math.abs(e.getX() - x) < range && Math.abs(e.getY() - y) < range && (int)e.getY()/64 != startTile.getY() && (int) e.getX()/64 != startTile.getX())
                 {
                     closest = e;
                     minDistance = Math.abs(e.getX() - x) + Math.abs(e.getY() - y);

@@ -7,7 +7,7 @@ import static Util.Artist.QuickLoad;
 public enum TowerType {
     CannonBase(new Texture[]{QuickLoad("CannonBase.png"), QuickLoad("CannonGun.png")}, 2, 300,0.5f, 10),
     CannonSniper(new Texture[]{QuickLoad("CannonSniper.png"),QuickLoad("CannonGun.png")}, 5,300,0.5f, 20),
-    CannonSpecial(new Texture[]{QuickLoad("CannonSpecial.png"),QuickLoad("CannonGun.png")}, 10,300,0.15f,30);
+    CannonSpecial(new Texture[]{QuickLoad("CannonSpecial.png"),QuickLoad("CannonGun.png")}, 10,300,0.7f,30);
 
     public Texture[] textures;
     int damage, range, price;
