@@ -81,7 +81,7 @@ public abstract class Tower implements  Entity {
         if(!foundTarget || outOfRange){
             target = findTarget();
         }
-        if( target == null || !target.isAlive()) foundTarget = false;
+        if( target == null || !target.isAlive()) target = findTarget();
         else {
             angle = calculateAngel();
             draw();
