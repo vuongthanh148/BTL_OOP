@@ -32,13 +32,13 @@ public class Wave {
                 timeSinceLastSpawn = 0;
             }
         }
-        for(Enemy e: enemyList){
-            if(e.isAlive()) {
+        for(int i=0;i< enemyList.size();i++){
+            if(enemyList.get(i).isAlive()) {
                 allEnemiesDead = false;
-                e.update();
-                e.draw();
+                enemyList.get(i).update();
+                enemyList.get(i).draw();
             }
-            //else enemyList.remove(0);
+            else enemyList.remove(i);
         }
         if(allEnemiesDead) waveCompleted = true;
     }

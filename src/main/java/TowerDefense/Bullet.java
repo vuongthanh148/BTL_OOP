@@ -32,6 +32,7 @@ public class Bullet {
 
     public void update() {
         if (alive) {
+            calculateDirection();
             x += xVelocity * Delta() * speed;
             y += yVelocity * Delta() * speed;
             if (target.isCollided(this)){
@@ -43,7 +44,11 @@ public class Bullet {
     }
 
     public void draw(){
-            DrawQuadTex(texture, x , y ,width,height);
+            DrawQuadTexRot(texture, x , y ,width,height, calculateAngel());
+    }
+
+    private float calculateAngel(){
+        return  (float) Math.toDegrees(Math.atan2(target.getY() - y, target.getX() - x)) - 90;
     }
 
     private void calculateDirection(){
