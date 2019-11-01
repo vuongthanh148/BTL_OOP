@@ -21,8 +21,9 @@ public class Player {
     private int cur;
     private WaveManager waveManager;
     private ArrayList<Tower> towerList;
-    boolean leftMouseDown = false, rightMouseButtonDown = false;
-    private TrueTypeFont font, font1;
+    boolean leftMouseDown = false, rightMouseButtonDown = false, holdingTower = false;
+    private TrueTypeFont font, font1, font2;
+    private Tower tempTower;
 
 
 
@@ -37,8 +38,13 @@ public class Player {
         this.towerList = new ArrayList<Tower>();
         this.money = money;
         Font awtFont = new Font("Times New Roman",Font.BOLD, 30);
+        Font awtFont1 = new Font("Times New Roman",Font.BOLD, 25);
+        //Font awtFont2 = new Font("Times New Roman",Font.BOLD, 40);
+
         font = new TrueTypeFont(awtFont, true);
-        font1 = new TrueTypeFont(awtFont, true);
+        font1 = new TrueTypeFont(awtFont1, true);
+        //font2= new TrueTypeFont(awtFont2,true);
+        this.tempTower = null;
     }
 
     public void setTile(){
@@ -46,22 +52,42 @@ public class Player {
     }
 
     public void init(){
-        money = 30;
-        lives = 5;
+        money = 50;
+        lives = 3;
     }
 
     public void drawString(){
         //Color.white.bind();
         String m = "Money: " + money;
         String l = "Lives: " + lives;
-        font.drawString(20, 10, m, Color.white);
-        font.drawString(250, 10, l, Color.white);
+        //String menu ="MENU TOWER: ";
+        font1.drawString(20, 645 , m, Color.white);
+        font1.drawString(200, 645, l, Color.white);
+        //font2.drawString(20,634,menu, Color.yellow);
+    }
+    public void drawStringTower(TowerType towerType,int x, int y){
+        //Color.white.bind();
+        //setupFontMenuTower();
+        String m = "Price: " + towerType.price ;
+        String l = "Damage: " + towerType.damage;
+        font1.drawString(x, y+30, m, Color.white);
+        font1.drawString(x, y+65, l, Color.white);
     }
 
 
     public void update(){
         drawString();
+        drawStringTower(TowerType.CannonBase,384,608);
+        drawStringTower(TowerType.CannonSniper,612,608);
+        drawStringTower(TowerType.CannonSpecial,850,608);
+
         //leftMouseDown = false;
+        //Update holding Tower
+        if(holdingTower){
+            tempTower.setX(getMouseTile().getX());
+            tempTower.setY(getMouseTile().getY());
+            tempTower.draw();
+        }
         for(Tower t: towerList){
             t.update();
             t.draw();
@@ -70,20 +96,12 @@ public class Player {
 
         //Handle Mouse
         //Set the Tower
-        if( Mouse.isButtonDown(0) && !leftMouseDown && !grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced && grid.getFloatTile(Mouse.getX(),Mouse.getY()).getType().buildable){
-            if(money - TowerType.CannonRed.price >= 0){
-                towerList.add(new TowerCannonBlue(TowerType.CannonRed, grid.getFloatTile(Mouse.getX(),Mouse.getY()), waveManager.getCurrentWave().getEnemyList()));
-                money -= TowerType.CannonRed.price;
-                grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced = true;
-            }
+        if( Mouse.isButtonDown(0) && !leftMouseDown && !grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced && grid.getFloatTile(Mouse.getX(),Mouse.getY()).getType().buildable ){
+            placeTower();
         }
 
-        if( Mouse.isButtonDown(1) && !rightMouseButtonDown && !grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced && grid.getFloatTile(Mouse.getX(),Mouse.getY()).getType().buildable){
-            if(money - TowerType.CannonSniper.price >= 0){
-                towerList.add(new TowerCannonBlue(TowerType.CannonSniper, grid.getFloatTile(Mouse.getX(),Mouse.getY()), waveManager.getCurrentWave().getEnemyList()));
-                money -= TowerType.CannonSniper.price;
-                grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced = true;
-            }
+        else if( Mouse.isButtonDown(1) && holdingTower){
+            holdingTower = false;
         }
 
         leftMouseDown = Mouse.isButtonDown(0);
@@ -106,12 +124,31 @@ public class Player {
             }
         }
     }
+    public Tile getMouseTile(){
+        return grid.getTile(Mouse.getX()/TILE_SIZE,(HEIGHT - Mouse.getY() -1) / TILE_SIZE);
+    }
 
     public int getMoney() {
         return money;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(int money){
         this.money = money;
+    }
+
+    public void pickTower(Tower tower){
+        tempTower = tower;
+        holdingTower = true;
+    }
+    private void placeTower(){
+        if(holdingTower) {
+            if (money - tempTower.getPrice() >= 0) {
+                towerList.add(tempTower);
+                money -= tempTower.getPrice();
+                grid.getFloatTile(Mouse.getX(), Mouse.getY()).isPlaced = true;
+            }
+        }
+        holdingTower = false;
+        tempTower=null;
     }
 }
