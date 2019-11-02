@@ -5,6 +5,7 @@ import org.lwjgl.Sys;
 import org.newdawn.slick.opengl.Texture;
 
 import static TowerDefense.Game.TILE_SIZE;
+import static TowerDefense.Game.pause;
 import static Util.Artist.*;
 import static Util.Clock.*;
 
@@ -32,8 +33,10 @@ public class Bullet {
 
     public void update() {
         if (alive) {
-            x += xVelocity * Delta() * speed;
-            y += yVelocity * Delta() * speed;
+            if(!pause){
+                x += xVelocity * Delta() * speed;
+                y += yVelocity * Delta() * speed;
+            }
             if (target.isCollided(this)){
                 target.takeDamage(damage);
                 alive = false;

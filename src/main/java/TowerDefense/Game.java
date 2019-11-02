@@ -13,7 +13,7 @@ public class Game {
     private Enemy[] enemyTypes;
     public static final int TILE_SIZE = 64;
     private UI towerPickerUI;
-    public String NamePause = "pause.png" ;
+    public String NamePause = "stop.png" ;
     public static boolean pause = true;
 
 
@@ -58,13 +58,13 @@ public class Game {
                     player.pickTower(new TowerCannonBlue(TowerType.CannonSpecial, grid.getTile(0, 0), waveManager.getListEnemy()));
                 }
                 else if(towerPickerUI.isButtonClicked("ButtonPause")){
-                    if(pause){
-                        pause = false;
+                    if(!pause){
+                        pause = true;
                         NamePause = "stop.png";
                         towerPickerUI.addButton("ButtonPause",NamePause,1220,0,80,80);
                     }
                     else{
-                        pause = true;
+                        pause = false;
                         NamePause ="pause.png";
                         towerPickerUI.addButton("ButtonPause",NamePause,1220,0,80,80);
 
@@ -75,11 +75,9 @@ public class Game {
 
     }
     public void Update(){
-        if(pause) {
             grid.DrawGrid(); // draw map
             waveManager.update(); // draw enemy
             player.update(); // draw tower
-        }
         updateUI(); //draw store
     }
 }

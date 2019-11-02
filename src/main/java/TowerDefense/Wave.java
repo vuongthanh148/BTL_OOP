@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static TowerDefense.Game.TILE_SIZE;
+import static TowerDefense.Game.pause;
 import static Util.Clock.Delta;
 
 public class Wave {
@@ -25,17 +26,19 @@ public class Wave {
 
     public void Update(){
         boolean allEnemiesDead = true;
-        if(enemyList.size() < enemiesPerWave){
-            timeSinceLastSpawn += Delta();
-            if(timeSinceLastSpawn >= spawnTime){
-                Spawn();
-                timeSinceLastSpawn = 0;
+        if(!pause){
+            if(enemyList.size() < enemiesPerWave){
+                timeSinceLastSpawn += Delta();
+                if(timeSinceLastSpawn >= spawnTime){
+                    Spawn();
+                    timeSinceLastSpawn = 0;
+                }
             }
         }
         for(Enemy e: enemyList){
             if(e.isAlive()) {
                 allEnemiesDead = false;
-                e.update();
+                if(!pause) e.update();
                 e.draw();
             }
             //else enemyList.remove(0);
