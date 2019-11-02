@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import static TowerDefense.Enemy.startTile;
 import static TowerDefense.Game.TILE_SIZE;
+import static TowerDefense.Game.pause;
 import static Util.Artist.*;
 import static Util.Clock.*;
 
@@ -83,11 +84,13 @@ public abstract class Tower implements  Entity {
         }
         if( target == null || !target.isAlive()) target = findTarget();
         else {
+            if(!pause){
+                timeSinceLastShot += Delta();
+                if (timeSinceLastShot > firingSpeed) Shoot();
+            }
+            for (Bullet b : bullets) b.update();
             angle = calculateAngel();
             draw();
-            timeSinceLastShot += Delta();
-            if (timeSinceLastShot > firingSpeed) Shoot();
-            for (Bullet b : bullets) b.update();
         }
     }
 

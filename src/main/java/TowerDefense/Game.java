@@ -13,6 +13,9 @@ public class Game {
     private Enemy[] enemyTypes;
     public static final int TILE_SIZE = 64;
     private UI towerPickerUI;
+    public String NamePause = "stop.png" ;
+    public static boolean pause = true;
+
 
     public Game(int[][] map){
         grid = new TileGrid(map);
@@ -34,7 +37,7 @@ public class Game {
         towerPickerUI.addButton("CannonBase","CannonBase.png",320,640,64,64);
         towerPickerUI.addButton("CannonSniper","CannonSniper.png",548,640,80,100);
         towerPickerUI.addButton("CannonSpecial","CannonSpecial.png",776,634,80,75);
-
+        towerPickerUI.addButton("ButtonPause",NamePause,1220,0,80,80);
     }
 
     private void updateUI(){
@@ -54,14 +57,27 @@ public class Game {
                 else if (towerPickerUI.isButtonClicked("CannonSpecial")) {
                     player.pickTower(new TowerCannonBlue(TowerType.CannonSpecial, grid.getTile(0, 0), waveManager.getListEnemy()));
                 }
+                else if(towerPickerUI.isButtonClicked("ButtonPause")){
+                    if(!pause){
+                        pause = true;
+                        NamePause = "stop.png";
+                        towerPickerUI.addButton("ButtonPause",NamePause,1220,0,80,80);
+                    }
+                    else{
+                        pause = false;
+                        NamePause ="pause.png";
+                        towerPickerUI.addButton("ButtonPause",NamePause,1220,0,80,80);
+
+                    }
+                }
             }
         }
 
     }
     public void Update(){
-        grid.DrawGrid(); // draw map
-        waveManager.update(); // draw enemy
-        player.update(); // draw tower
+            grid.DrawGrid(); // draw map
+            waveManager.update(); // draw enemy
+            player.update(); // draw tower
         updateUI(); //draw store
     }
 }
