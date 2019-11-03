@@ -3,10 +3,12 @@ package TowerDefense;
 import Util.Clock;
 import org.lwjgl.opengl.Display;
 
+import java.io.IOException;
+
 import static Util.Artist.*;
 
 public class Main {
-    public Main(){
+    public Main() throws IOException {
         BeginSession();
 
         //Game game = new Game(map);
@@ -23,7 +25,7 @@ public class Main {
         Display.destroy();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new Main();
     }
 }

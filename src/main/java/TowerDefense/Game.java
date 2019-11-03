@@ -3,6 +3,8 @@ package TowerDefense;
 import UI.UI;
 import org.lwjgl.input.Mouse;
 
+import java.io.IOException;
+
 public class Game {
     private TileGrid grid;
     private Player player;
@@ -16,14 +18,15 @@ public class Game {
     public static int gameSpeed = 1;
 
 
-    public Game(int[][] map){
+
+    public Game(int[][] map) throws IOException {
         grid = new TileGrid(map);
         enemyTypes = new Enemy[4];
         enemyTypes[0] = new NormalEnemy(0,8,grid);
         enemyTypes[1] = new SmallEnemy(0,8,grid);
         enemyTypes[2] = new TankerEnemy(0,8,grid);
         enemyTypes[3] = new BossEnemy(0,8,grid);
-        waveManager = new WaveManager(enemyTypes,2, 10);
+        waveManager = new WaveManager(enemyTypes,1, 20);
         player = new Player(grid, waveManager);
         player.init();
         setupUI();
@@ -41,9 +44,6 @@ public class Game {
     }
 
     private void updateUI(){
-        grid.getFloatTile(0,576).isPlaced = true;
-        grid.getFloatTile(64,576).isPlaced = true;
-        grid.getFloatTile(128,576).isPlaced = true;
         towerPickerUI.draw();
         if(Mouse.next()){
             boolean mouseClicked = Mouse.isButtonDown(0);
@@ -92,9 +92,9 @@ public class Game {
 
     }
     public void Update(){
-            grid.DrawGrid(); // draw map
-            waveManager.update(); // draw enemy
-            player.update(); // draw tower
+        grid.DrawGrid(); // draw map
+        waveManager.update(); // draw enemy
+        player.update(); // draw tower
         updateUI(); //draw store
     }
 }

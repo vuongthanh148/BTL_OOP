@@ -51,7 +51,7 @@ public class Player {
     }
 
     public void init(){
-        money = 50;
+        money = 100;
         lives = 20;
     }
 
@@ -78,15 +78,15 @@ public class Player {
     public void update(){
         drawString();
         drawStringTower(TowerType.NormalTower,384,608);
-        drawStringTower(TowerType.SniperTower,612,608);
-        drawStringTower(TowerType.MachineGunTower,850,608);
+        drawStringTower(TowerType.MachineGunTower,612,608);
+        drawStringTower(TowerType.SniperTower,850,608);
 
         //leftMouseDown = false;
         //Update holding Tower
         if(holdingTower){
             tempTower.setX(getMouseTile().getX());
             tempTower.setY(getMouseTile().getY());
-            DrawQuadTex(tempTower.textures[1],tempTower.getX() - (tempTower.getRange() - TILE_SIZE/2),tempTower.getY() - (tempTower.getRange() - TILE_SIZE/2), tempTower.getRange()*2, tempTower.getRange()*2);
+            DrawQuadTex(tempTower.textures[2],tempTower.getX() - (tempTower.getRange() - TILE_SIZE/2),tempTower.getY() - (tempTower.getRange() - TILE_SIZE/2), tempTower.getRange()*2, tempTower.getRange()*2);
             tempTower.draw();
         }
         for(Tower t: towerList){

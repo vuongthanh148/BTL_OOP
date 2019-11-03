@@ -9,6 +9,8 @@ import static TowerDefense.Enemy.startTile;
 import static TowerDefense.Game.*;
 import static Util.Artist.*;
 import static Util.Clock.*;
+import static Util.Sound.machinegunSound;
+import static Util.Sound.sniperSound;
 
 public abstract class Tower implements  Entity {
     private float x,y, timeSinceLastShot, firingSpeed, angle;
@@ -134,7 +136,16 @@ public abstract class Tower implements  Entity {
 
     public void Shoot(){
         timeSinceLastShot = 0;
-        bullets.add(new Bullet(QuickLoad("CannonGun.png"), target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 32, 32, type.bulletSpeed, damage ));// sua lai width, height
+        if(type == TowerType.NormalTower){
+            machinegunSound();
+        }
+        else if(type == TowerType.MachineGunTower){
+            machinegunSound();
+        }
+        else if(type == TowerType.SniperTower){
+            sniperSound();
+        }
+        bullets.add(new Bullet(type.textures[1], target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 32, 32, type.bulletSpeed, damage ));// sua lai width, height
     }
 
     public void updateEnemyList( ArrayList<Enemy> newList){
