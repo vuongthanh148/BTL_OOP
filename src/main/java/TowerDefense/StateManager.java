@@ -1,5 +1,9 @@
 package TowerDefense;
 
+import java.io.IOException;
+
+import static Util.Sound.backgroundSound;
+
 public class StateManager {
 
     public static enum GameState {
@@ -10,6 +14,7 @@ public class StateManager {
     public static MainMenu mainMenu;
     public static Game game;
     public static Editor editor;
+    static boolean first = true;
 
     static int[][] map={
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -26,7 +31,11 @@ public class StateManager {
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
     };
 
-    public static void update() {
+    public static void update() throws IOException {
+        if(first) {
+            backgroundSound();
+            first = false;
+        }
         switch (gameState) {
             case MAINMENU:
                 if (mainMenu == null) {

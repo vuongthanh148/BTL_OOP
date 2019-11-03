@@ -11,8 +11,8 @@ public class BossEnemy extends Enemy {
     public BossEnemy(int x, int y, TileGrid grid){
         super(x, y, grid);
         this.texture = QuickLoad("boss_enemy.png");
-        health = 300;
-        speed = 60;
+        health = 800;
+        speed = 80;
         reward = 50;
     }
 

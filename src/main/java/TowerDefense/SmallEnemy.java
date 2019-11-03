@@ -11,8 +11,8 @@ public class SmallEnemy extends Enemy {
     public SmallEnemy(int x, int y, TileGrid grid){
         super(x, y, grid);
         this.texture = QuickLoad("small_enemy.png");
-        health = 70;
-        speed = 160;
+        health = 300;
+        speed = 200;
         reward = 10;
     }
 

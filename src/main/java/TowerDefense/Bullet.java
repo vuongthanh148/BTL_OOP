@@ -49,13 +49,13 @@ public class Bullet {
     }
 
     private float calculateAngel(){
-        return  (float) Math.toDegrees(Math.atan2(target.getY() - y, target.getX() - x)) - 90;
+        return  (float) Math.toDegrees(Math.atan2(target.getY() + TILE_SIZE/4 - y, target.getX() + TILE_SIZE/4 - x)) - 90;
     }
 
     private void calculateDirection(){
         float totalVelocity = 1.0f;
-        float xDistanceFromTarget = Math.abs(target.getX() - x + TILE_SIZE / 4); // Aiming to center of enemy
-        float yDistanceFromTarget = Math.abs(target.getY() - y + TILE_SIZE / 4); // Aiming to center of enemy
+        float xDistanceFromTarget = Math.abs(target.getX() - x + TILE_SIZE/4 ); // Aiming to center of enemy
+        float yDistanceFromTarget = Math.abs(target.getY() - y + TILE_SIZE/4); // Aiming to center of enemy
         float totalDistance = xDistanceFromTarget + yDistanceFromTarget;
         xVelocity = xDistanceFromTarget/totalDistance;
         yVelocity = totalVelocity - xVelocity;

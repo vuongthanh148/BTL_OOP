@@ -74,7 +74,6 @@ public class Tile {
         this.height = height;
         this.type = type;
         this.texture = QuickLoad(type.textureName);
-        //this.isPlaced = false;
     }
 
     public void Draw(){
