@@ -10,14 +10,14 @@ public class Clock {
     public static float d = 0, multiplier = 1;
     public static Enemy e;
     public static long getTime(){
-        return Sys.getTime()*1000/Sys.getTimerResolution();
+        return Sys.getTime()*10000/Sys.getTimerResolution();
     }
 
     public static float getDelta(){
         long currentTime  = getTime();
         int delta = (int) (currentTime-lastFrame);
         lastFrame = getTime();
-        if(delta*0.001f > 0.01f ) return  0.01f;
+        if(delta*0.001f > 0.01f ) return 0.01f;
         return (float) (delta*0.001f);
     }
 
