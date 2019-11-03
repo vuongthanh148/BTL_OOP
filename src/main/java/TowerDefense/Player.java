@@ -3,16 +3,15 @@ package TowerDefense;
 import Util.Artist;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
-import sun.java2d.loops.DrawLine;
 
 import java.awt.*;
 import java.util.ArrayList;
 
 import static TowerDefense.Game.TILE_SIZE;
+import static TowerDefense.WaveManager.waveNumber;
 import static Util.Artist.*;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.TrueTypeFont;
-import org.newdawn.slick.util.ResourceLoader;
 
 public class Player {
     public static int money, lives;
@@ -53,17 +52,18 @@ public class Player {
 
     public void init(){
         money = 50;
-        lives = 3;
+        lives = 20;
     }
 
     public void drawString(){
         //Color.white.bind();
         String m = "Money: " + money;
         String l = "Lives: " + lives;
+        String w = "Waves: " + waveNumber;
         //String menu ="MENU TOWER: ";
         font1.drawString(20, 645 , m, Color.white);
         font1.drawString(200, 645, l, Color.white);
-        //font2.drawString(20,634,menu, Color.yellow);
+        font1.drawString(1100, 645, w, Color.white);
     }
     public void drawStringTower(TowerType towerType,int x, int y){
         //Color.white.bind();
@@ -77,15 +77,16 @@ public class Player {
 
     public void update(){
         drawString();
-        drawStringTower(TowerType.CannonBase,384,608);
-        drawStringTower(TowerType.CannonSniper,612,608);
-        drawStringTower(TowerType.CannonSpecial,850,608);
+        drawStringTower(TowerType.NormalTower,384,608);
+        drawStringTower(TowerType.SniperTower,612,608);
+        drawStringTower(TowerType.MachineGunTower,850,608);
 
         //leftMouseDown = false;
         //Update holding Tower
         if(holdingTower){
             tempTower.setX(getMouseTile().getX());
             tempTower.setY(getMouseTile().getY());
+            DrawQuadTex(tempTower.textures[1],tempTower.getX() - (tempTower.getRange() - TILE_SIZE/2),tempTower.getY() - (tempTower.getRange() - TILE_SIZE/2), tempTower.getRange()*2, tempTower.getRange()*2);
             tempTower.draw();
         }
         for(Tower t: towerList){

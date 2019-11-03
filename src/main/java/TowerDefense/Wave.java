@@ -3,31 +3,31 @@ package TowerDefense;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static TowerDefense.Game.TILE_SIZE;
-import static TowerDefense.Game.pause;
+import static TowerDefense.Game.*;
 import static Util.Clock.Delta;
 
 public class Wave {
     private float timeSinceLastSpawn, spawnTime;
     private Enemy[] enemyTypes;
     private ArrayList<Enemy> enemyList;
-    private int enemiesPerWave;
-    private boolean waveCompleted;
+    private int enemiesPerWave, spawnedEnemy;
+    private boolean waveCompleted, allEnemyDie;
 
     public Wave(Enemy[] enemyTypes, float spawnTime, int enemiesPerWave ) {
-        this.spawnTime = spawnTime;
+        this.spawnTime = spawnTime / gameSpeed;
         this.enemyTypes = enemyTypes;
+        this.spawnedEnemy = 0;
         timeSinceLastSpawn = 0;
         enemyList = new ArrayList<Enemy>();
         this.enemiesPerWave = enemiesPerWave;
         this.waveCompleted = false;
-        Spawn();
+        //Spawn();
     }
 
     public void Update(){
-        boolean allEnemiesDead = true;
+        allEnemyDie = true;
         if(!pause){
-            if(enemyList.size() < enemiesPerWave){
+            if(spawnedEnemy < enemiesPerWave){
                 timeSinceLastSpawn += Delta();
                 if(timeSinceLastSpawn >= spawnTime){
                     Spawn();
@@ -37,12 +37,16 @@ public class Wave {
         }
         for(int i=0;i< enemyList.size();i++){
             if(enemyList.get(i).isAlive()) {
-                allEnemiesDead = false;
+                allEnemyDie = false;
                 if(!pause) enemyList.get(i).update();
-                enemyList.get(i).draw();            }
+                enemyList.get(i).draw();
+            }
             else enemyList.remove(i);
         }
-        if(allEnemiesDead) waveCompleted = true;
+        if(allEnemyDie && spawnedEnemy == enemiesPerWave) {
+            waveCompleted = true;
+            pause = true;
+        }
     }
 
     public void Spawn(){
@@ -50,6 +54,7 @@ public class Wave {
         int index = r.nextInt(4);
         enemyList.add(new Enemy(enemyTypes[index].getTexture(),enemyTypes[index].getStartTile(), enemyTypes[index].getTileGrid(),
                 TILE_SIZE,TILE_SIZE, enemyTypes[index].getHealth(), enemyTypes[index].getSpeed(), enemyTypes[index].getReward()));
+        this.spawnedEnemy++;
     }
 
     public boolean isCompleted(){

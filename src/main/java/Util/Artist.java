@@ -14,10 +14,10 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL11.GL_MODELVIEW;
 
 public class Artist {
-    public static final int WIDTH = 20*64, HEIGHT= 11*64;
+    public static final int WIDTH = 20*64, HEIGHT= 12*64;
 
     public static void BeginSession(){
-        Display.setTitle("ngu ngu ngu ngu");
+        Display.setTitle("Tower Defense");
 
         try {
             Display.setDisplayMode(new DisplayMode(WIDTH, HEIGHT));
@@ -33,14 +33,6 @@ public class Artist {
         glEnable(GL_TEXTURE_2D);
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-    }
-
-    public static boolean CheckCollision(float x1, float y1, float width1, float height1, float x2, float y2, float width2, float height2) {
-        if (x1 + width1 > x2 && x1 < x2 + width2 && y1 + height1 > y2 && y1 < y2 + height2) {
-            return true;
-        }
-        return false;
     }
 
     public static void DrawQuad(float x, float y, float width, float height){

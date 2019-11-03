@@ -8,6 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 import static TowerDefense.Game.TILE_SIZE;
+import static TowerDefense.Game.gameSpeed;
 import static Util.Artist.*;
 import static Util.Clock.*;
 import static TowerDefense.Player.*;
@@ -24,24 +25,26 @@ public class Enemy implements Entity  {
     public boolean first = true, alive = true;
     public TileGrid grid;
     public int[] directions;
+    boolean found = false;
     //Player player;
 
     public Enemy(int x, int y, TileGrid grid) {
         //this.texture = QuickLoad("enemy.png");
         this.grid = grid;
         this.startTile = grid.getTile(x,y);
-        this.x = startTile.getX();
-        this.y = startTile.getY();
+        this.x = x*64;
+        this.y = y*64;
         this.grid = grid;
         this.width = TILE_SIZE;
         this.height = TILE_SIZE;
         this.directions = new int[2];
-        this.oldX = 0;
-        this.oldY = 0;
+        this.oldX = -64;
+        this.oldY = 448;
         //Xdir
         this.directions[0]=0;
         //YDir
         this.directions[1]=0;
+        this.directions = FindNextDir(this.getStartTile());
     }
 
     public Enemy(Texture texture, Tile startTile, TileGrid grid,int width, int height,  float health, float speed, int reward){
@@ -59,8 +62,8 @@ public class Enemy implements Entity  {
         this.speed = speed;
         this.grid = grid;
         this.directions = new int[2];
-        this.oldX = 0;
-        this.oldY = 0;
+        this.oldX = -64;
+        this.oldY = 512;
         this.reward = reward;
         //Xdir
         this.directions[0]=0;
@@ -93,17 +96,26 @@ public class Enemy implements Entity  {
             }
         }*/
 
-
-        if(Math.abs((int) x - oldX) >= TILE_SIZE || Math.abs((int) y - oldY) >= TILE_SIZE) {
-            directions = FindNextDir(grid.getTile((int) x / TILE_SIZE, (int) y / TILE_SIZE ));
-            oldX = (int) x;
-            oldY = (int) y;
-            //System.out.println("found");
+        if(!found){
+            directions = FindNextDir(grid.getTile((int) x / TILE_SIZE, (int) y / TILE_SIZE));
+            found = true;
         }
-        //System.out.println("x: "+ (int) x + " oldX: " + oldX + " y: " + (int) y + " oldY: " + oldY );
         if(directions[0] != 3 ){
-            x += Delta()*directions[0]*speed;
-            y += Delta()*directions[1]*speed;
+            if(Math.abs(x + Delta() * directions[0] * speed * gameSpeed - oldX) >= TILE_SIZE){
+                x = oldX + (int) 64*directions[0];
+                oldX = (int) x;
+                directions = FindNextDir(grid.getTile((int) x / TILE_SIZE, (int) y / TILE_SIZE));
+                //System.out.println("oldX: " + oldX + " X: " + x);
+
+            }
+            else x += Delta() * directions[0] * speed * gameSpeed;
+            if(Math.abs(y + Delta() * directions[1] * speed * gameSpeed - oldY) >= TILE_SIZE) {
+                y = oldY + (int) 64*directions[1];
+                oldY = (int) y;
+                directions = FindNextDir(grid.getTile((int) x / TILE_SIZE, (int) y / TILE_SIZE));
+                //System.out.println("oldY: " + oldY + " Y: " + y);
+            }
+            else y += Delta() * directions[1] * speed * gameSpeed;
         }
         else {
             lives--;

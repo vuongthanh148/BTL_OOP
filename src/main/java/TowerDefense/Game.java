@@ -2,9 +2,6 @@ package TowerDefense;
 
 import UI.UI;
 import org.lwjgl.input.Mouse;
-import java.awt.*;
-
-import static Util.Artist.*;
 
 public class Game {
     private TileGrid grid;
@@ -13,8 +10,10 @@ public class Game {
     private Enemy[] enemyTypes;
     public static final int TILE_SIZE = 64;
     private UI towerPickerUI;
-    public String NamePause = "stop.png" ;
-    public static boolean pause = true;
+    public String NamePause = "run.png";
+    public String NameSpeed = "speed.png";
+    public static boolean pause = true, accelerated = false;
+    public static int gameSpeed = 1;
 
 
     public Game(int[][] map){
@@ -24,20 +23,21 @@ public class Game {
         enemyTypes[1] = new SmallEnemy(0,8,grid);
         enemyTypes[2] = new TankerEnemy(0,8,grid);
         enemyTypes[3] = new BossEnemy(0,8,grid);
-        waveManager = new WaveManager(enemyTypes,2, 7);
+        waveManager = new WaveManager(enemyTypes,2, 10);
         player = new Player(grid, waveManager);
         player.init();
         setupUI();
-
+        gameSpeed = 1;
     }
 
 
     private void setupUI(){
         towerPickerUI = new UI();
-        towerPickerUI.addButton("CannonBase","CannonBase.png",320,640,64,64);
-        towerPickerUI.addButton("CannonSniper","CannonSniper.png",548,640,80,100);
-        towerPickerUI.addButton("CannonSpecial","CannonSpecial.png",776,634,80,75);
-        towerPickerUI.addButton("ButtonPause",NamePause,1220,0,80,80);
+        towerPickerUI.addButton("NormalTower","NormalTower.png",320,640,64,64);
+        towerPickerUI.addButton("MachineGunTower","MachineGunTower.png",548,640,64,64);
+        towerPickerUI.addButton("SniperTower","SniperTower.png",776,640,64,64);
+        towerPickerUI.addButton("ButtonPause",NamePause,1210,0,64,64);
+        towerPickerUI.addButton("AccelerateSpeed",NameSpeed,1142,0,64,64);
     }
 
     private void updateUI(){
@@ -45,32 +45,49 @@ public class Game {
         grid.getFloatTile(64,576).isPlaced = true;
         grid.getFloatTile(128,576).isPlaced = true;
         towerPickerUI.draw();
-        if(Mouse.next()) {
+        if(Mouse.next()){
             boolean mouseClicked = Mouse.isButtonDown(0);
             if(mouseClicked) {
-                if (towerPickerUI.isButtonClicked("CannonBase")) {
-                    player.pickTower(new TowerCannonBlue(TowerType.CannonBase, grid.getTile(0, 0), waveManager.getListEnemy()));
+                if (towerPickerUI.isButtonClicked("NormalTower")) {
+                    player.pickTower(new TowerManager(TowerType.NormalTower, grid.getTile(0, 0), waveManager.getListEnemy()));
                 }
-                else if (towerPickerUI.isButtonClicked("CannonSniper")) {
-                    player.pickTower(new TowerCannonBlue(TowerType.CannonSniper, grid.getTile(0, 0), waveManager.getListEnemy()));
+                else if (towerPickerUI.isButtonClicked("SniperTower")) {
+                    player.pickTower(new TowerManager(TowerType.SniperTower, grid.getTile(0, 0), waveManager.getListEnemy()));
                 }
-                else if (towerPickerUI.isButtonClicked("CannonSpecial")) {
-                    player.pickTower(new TowerCannonBlue(TowerType.CannonSpecial, grid.getTile(0, 0), waveManager.getListEnemy()));
+                else if (towerPickerUI.isButtonClicked("MachineGunTower")) {
+                    player.pickTower(new TowerManager(TowerType.MachineGunTower, grid.getTile(0, 0), waveManager.getListEnemy()));
                 }
-                else if(towerPickerUI.isButtonClicked("ButtonPause")){
-                    if(!pause){
-                        pause = true;
-                        NamePause = "stop.png";
-                        towerPickerUI.addButton("ButtonPause",NamePause,1220,0,80,80);
+                if(towerPickerUI.isButtonClicked("AccelerateSpeed")){
+                    if(!accelerated){
+                        gameSpeed = 2;
+                        accelerated = true;
+                        towerPickerUI.removeButton("AccelerateSpeed");
+                        NameSpeed = "stop.png";
+                        towerPickerUI.addButton("AccelerateSpeed",NameSpeed,1142,0,64,64);
                     }
                     else{
-                        pause = false;
-                        NamePause ="pause.png";
-                        towerPickerUI.addButton("ButtonPause",NamePause,1220,0,80,80);
-
+                        gameSpeed = 1;
+                        accelerated = false;
+                        towerPickerUI.removeButton("AccelerateSpeed");
+                        NameSpeed = "speed.png";
+                        towerPickerUI.addButton("AccelerateSpeed",NameSpeed,1142,0,64,64);
                     }
                 }
+                //pause
+                if(towerPickerUI.isButtonClicked("ButtonPause")){
+                    pause = !pause;
+                }
             }
+        }
+        if(pause){
+            towerPickerUI.removeButton("ButtonPause");
+            NamePause = "run.png";
+            towerPickerUI.addButton("ButtonPause",NamePause,1210,0,64,64);
+        }
+        else{
+            towerPickerUI.removeButton("ButtonPause");
+            NamePause ="pause.png";
+            towerPickerUI.addButton("ButtonPause",NamePause,1210,0,64,64);
         }
 
     }

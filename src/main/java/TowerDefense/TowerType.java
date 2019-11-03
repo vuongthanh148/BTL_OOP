@@ -2,22 +2,24 @@ package TowerDefense;
 
 import org.newdawn.slick.opengl.Texture;
 
+import static TowerDefense.Game.TILE_SIZE;
 import static Util.Artist.QuickLoad;
 
 public enum TowerType {
-    CannonBase(new Texture[]{QuickLoad("CannonBase.png"), QuickLoad("CannonGun.png")}, 2, 300,0.5f, 10),
-    CannonSniper(new Texture[]{QuickLoad("CannonSniper.png"),QuickLoad("CannonGun.png")}, 5,300,0.5f, 20),
-    CannonSpecial(new Texture[]{QuickLoad("CannonSpecial.png"),QuickLoad("CannonGun.png")}, 10,300,0.7f,30);
+    NormalTower(new Texture[]{QuickLoad("NormalTower.png"), QuickLoad("range.png")}, 5, TILE_SIZE*3, 300,0.05f, 10),
+    SniperTower(new Texture[]{QuickLoad("SniperTower.png"), QuickLoad("range.png")}, 10,TILE_SIZE*5, 500,0.5f, 30),
+    MachineGunTower(new Texture[]{QuickLoad("MachineGunTower.png"), QuickLoad("range.png")}, 3,TILE_SIZE*2, 200, 0.03f,20);
 
     public Texture[] textures;
-    int damage, range, price;
+    public int damage, range, price, bulletSpeed;
     float firingSpeed;
 
-    TowerType(Texture[] textures, int damage, int range, float firingSpeed, int price) {
+    TowerType(Texture[] textures, int damage, int range, int bulletSpeed, float firingSpeed, int price) {
         this.textures = textures;
         this.damage= damage;
         this.range= range;
         this.firingSpeed = firingSpeed;
         this.price = price;
+        this.bulletSpeed = bulletSpeed;
     }
 }

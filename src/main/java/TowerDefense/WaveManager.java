@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class WaveManager {
     private float timeSinceLastWave, timeBetweenEnemies;
-    private int waveNumber, enemiesPerWave;
+    public static int waveNumber, enemiesPerWave;
     private Enemy[] enemyTypes;
     private Wave currentWave;
 
@@ -14,9 +14,7 @@ public class WaveManager {
         this.enemyTypes = enemyTypes;
         this.timeSinceLastWave = 0;
         this.waveNumber = 0;
-
         this.currentWave = null;
-
         newWave();
     }
 

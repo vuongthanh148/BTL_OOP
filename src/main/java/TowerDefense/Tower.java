@@ -1,12 +1,12 @@
 package TowerDefense;
 
+import com.sun.xml.internal.bind.v2.model.annotation.Quick;
 import org.newdawn.slick.opengl.Texture;
 
 import java.util.ArrayList;
 
 import static TowerDefense.Enemy.startTile;
-import static TowerDefense.Game.TILE_SIZE;
-import static TowerDefense.Game.pause;
+import static TowerDefense.Game.*;
 import static Util.Artist.*;
 import static Util.Clock.*;
 
@@ -14,7 +14,7 @@ public abstract class Tower implements  Entity {
     private float x,y, timeSinceLastShot, firingSpeed, angle;
     private int width, height, damage, range, price;
     private Enemy target;
-    private Texture[] textures;
+    public Texture[] textures;
     private ArrayList<Enemy> enemies;
     private ArrayList<Bullet> bullets;
     private boolean foundTarget, outOfRange;
@@ -34,7 +34,7 @@ public abstract class Tower implements  Entity {
         this.foundTarget= false;
         this.timeSinceLastShot = 0f;
         this.bullets = new ArrayList<Bullet>();
-        this.firingSpeed = type.firingSpeed;
+        this.firingSpeed = type.firingSpeed / gameSpeed;
         this.angle = 0f;
         this.outOfRange = false;
         this.price = type.price;
@@ -78,6 +78,14 @@ public abstract class Tower implements  Entity {
         this.price = price;
     }
 
+    public int getRange() {
+        return range;
+    }
+
+    public void setRange(int range) {
+        this.range = range;
+    }
+
     public void update() {
         if(!foundTarget || outOfRange){
             target = findTarget();
@@ -88,18 +96,18 @@ public abstract class Tower implements  Entity {
                 timeSinceLastShot += Delta();
                 if (timeSinceLastShot > firingSpeed) Shoot();
             }
-            for (Bullet b : bullets) b.update();
             angle = calculateAngel();
-            draw();
         }
+        for (int i=0; i<bullets.size();i++) {
+            if(bullets.get(i).isAlive()) bullets.get(i).update();
+            else bullets.remove(i);
+        }
+        draw();
+
     }
 
     public void draw(){
-        DrawQuadTex(textures[0],x,y,width,height);
-        if(textures.length >= 1)
-            for(int i = 1; i < textures.length; i++){
-                DrawQuadTexRot(textures[i],x,y,width,height,angle );
-            }
+        DrawQuadTexRot(textures[0],x,y,width,height,angle );
     }
 
     private Enemy findTarget(){ //Aiming to enemy || DONT TOUCH THIS || :D
@@ -126,7 +134,7 @@ public abstract class Tower implements  Entity {
 
     public void Shoot(){
         timeSinceLastShot = 0;
-        bullets.add(new Bullet(QuickLoad("CannonGun.png"), target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 32, 32, 1000, damage ));// sua lai width, height
+        bullets.add(new Bullet(QuickLoad("CannonGun.png"), target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 32, 32, type.bulletSpeed, damage ));// sua lai width, height
     }
 
     public void updateEnemyList( ArrayList<Enemy> newList){

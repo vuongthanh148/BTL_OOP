@@ -24,6 +24,13 @@ public class UI {
     public void addButton(String name, String textureName, int x, int y, int width,int height) {
         buttonList.add(new Button(name, QuickLoad(textureName), x, y,width,height));
     }
+
+    public void removeButton(String name){
+        for(int i=0;i<buttonList.size();i++){
+            if(buttonList.get(i).getName().equals(name)) buttonList.remove(i);
+        }
+    }
+
     /*public void addButtonTower(String name, TowerType towerType, int x, int y) {
         buttonListTower.add(new Button(name, towerType, x, y,64));
     }*/

@@ -4,8 +4,7 @@ import Util.Artist;
 import org.lwjgl.Sys;
 import org.newdawn.slick.opengl.Texture;
 
-import static TowerDefense.Game.TILE_SIZE;
-import static TowerDefense.Game.pause;
+import static TowerDefense.Game.*;
 import static Util.Artist.*;
 import static Util.Clock.*;
 
@@ -32,18 +31,17 @@ public class Bullet {
     }
 
     public void update() {
-        if (alive) {
-            if(!pause){
-                calculateDirection();
-                x += xVelocity * Delta() * speed;
-                y += yVelocity * Delta() * speed;
-            }
-            if (target.isCollided(this)){
-                target.takeDamage(damage);
-                alive = false;
-            }
-            draw();
+        if(!pause){
+            calculateDirection();
+            x += xVelocity * Delta() * speed * gameSpeed;
+            y += yVelocity * Delta() * speed * gameSpeed;
         }
+        if (target.isCollided(this)){
+            target.takeDamage(damage);
+            alive = false;
+        }
+        if(!target.isAlive() || target == null) alive = false;
+        if(isAlive()) draw();
     }
 
     public void draw(){
@@ -65,4 +63,7 @@ public class Bullet {
         if(target.getY() < y) yVelocity*=-1;
     }
 
+    public boolean isAlive(){
+        return alive;
+    }
 }
