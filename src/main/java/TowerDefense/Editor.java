@@ -7,6 +7,7 @@ import org.lwjgl.input.Mouse;
 
 
 import static TowerDefense.Game.TILE_SIZE;
+import static TowerDefense.WaveManager.waveNumber;
 import static Util.Artist.HEIGHT;
 import static Util.Leveler.*;
 
@@ -18,12 +19,13 @@ public class Editor {
     private int cur = 0;
 
     public Editor() {
-        grid = loadMap("newMap");
+        grid = loadMap("LastMap");
         this.cur = 0;
-        this.types = new TileType[3];
+        this.types = new TileType[4];
         this.types[0] = TileType.Grass;
         this.types[1] = TileType.Dirt;
         this.types[2] = TileType.Water;
+        this.types[3] = TileType.MenuTower;
     }
 
     public void update() {
@@ -49,7 +51,8 @@ public class Editor {
                         cur = 3;
                         break;
                     case Keyboard.KEY_S:
-                        saveMap("mapTest", grid);
+                        String s = "Stage" + 3;
+                        saveMap(s, grid);
                 }
             }
         }

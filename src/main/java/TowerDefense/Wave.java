@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static TowerDefense.Game.*;
+import static TowerDefense.Player.stageNumber;
+import static TowerDefense.StateManager.game;
 import static Util.Clock.Delta;
 
 public class Wave {
@@ -52,8 +54,8 @@ public class Wave {
     public void Spawn(){
         Random r = new Random();
         int index = r.nextInt(4);
-        enemyList.add(new Enemy(enemyTypes[index].getTexture(),enemyTypes[index].getStartTile(), enemyTypes[index].getTileGrid(),
-                TILE_SIZE,TILE_SIZE, enemyTypes[index].getHealth(), enemyTypes[index].getSpeed(), enemyTypes[index].getReward()));
+        enemyList.add(new Enemy(enemyTypes[index].getTexture(),enemyTypes[index].getStartTile(), game.grid,
+                TILE_SIZE,TILE_SIZE, enemyTypes[index].getHealth() + (stageNumber-1)*(stageNumber-1)*100, enemyTypes[index].getSpeed() + (stageNumber-1)*40, enemyTypes[index].getReward()));
         this.spawnedEnemy++;
     }
 

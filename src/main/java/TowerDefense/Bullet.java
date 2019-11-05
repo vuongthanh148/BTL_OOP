@@ -35,11 +35,12 @@ public class Bullet {
             calculateDirection();
             x += xVelocity * Delta() * speed * gameSpeed;
             y += yVelocity * Delta() * speed * gameSpeed;
+            if (target.isCollided(this)){
+                target.takeDamage(damage);
+                alive = false;
+            }
         }
-        if (target.isCollided(this)){
-            target.takeDamage(damage);
-            alive = false;
-        }
+
         if(!target.isAlive() || target == null) alive = false;
         if(isAlive()) draw();
     }

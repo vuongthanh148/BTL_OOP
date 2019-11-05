@@ -10,11 +10,12 @@ import static Util.Artist.*;
 import static com.sun.deploy.trace.TraceLevel.UI;
 
 public class MainMenu {
-    private Texture background;
+    private Texture background, startLogo;
     private UI menuUI;
 
     public MainMenu() {
        background = QuickLoad ("mainmenu.png");
+       startLogo = QuickLoad("gamelogo.png");
        menuUI = new UI();
        menuUI.addButton("Play", "playButton.png", WIDTH / 2 - 128, (int) (HEIGHT * 0.45f));
        menuUI.addButton("Editor", "editor.png", WIDTH /2 - 128 , (int) (HEIGHT*0.55f));
@@ -31,6 +32,7 @@ public class MainMenu {
 
     public void update() {
         DrawQuadTex(background, 0, 0, 2048, 1024);
+        DrawQuadTex(startLogo, 370, 100, 800, 400);
         menuUI.draw();
         updateButtons();
     }

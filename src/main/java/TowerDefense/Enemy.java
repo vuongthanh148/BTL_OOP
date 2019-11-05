@@ -97,21 +97,21 @@ public class Enemy implements Entity  {
             }
         }*/
 
-        if(!found){
+    if(!found){
             directions = FindNextDir(grid.getTile((int) x / TILE_SIZE, (int) y / TILE_SIZE));
             found = true;
         }
-        if(directions[0] != 3 ){
-            if(Math.abs(x + Delta() * directions[0] * speed * gameSpeed - oldX) >= TILE_SIZE){
-                x = oldX + (int) 64*directions[0];
-                oldX = (int) x;
-                directions = FindNextDir(grid.getTile((int) x / TILE_SIZE, (int) y / TILE_SIZE));
-                //System.out.println("oldX: " + oldX + " X: " + x);
 
-            }
-            else x += Delta() * directions[0] * speed * gameSpeed;
-            if(Math.abs(y + Delta() * directions[1] * speed * gameSpeed - oldY) >= TILE_SIZE) {
-                y = oldY + (int) 64*directions[1];
+        if(directions[0] != 2 ){
+                if(Math.abs(x + Delta() * directions[0] * speed * gameSpeed - oldX) >= TILE_SIZE){
+                    x = oldX + (int) 64*directions[0];
+                    oldX = (int) x;
+                    directions = FindNextDir(grid.getTile((int) x / TILE_SIZE, (int) y / TILE_SIZE));
+                    //System.out.println("oldX: " + oldX + " X: " + x);
+                }
+                else x += Delta() * directions[0] * speed * gameSpeed;
+                if(Math.abs(y + Delta() * directions[1] * speed * gameSpeed - oldY) >= TILE_SIZE) {
+                    y = oldY + (int) 64*directions[1];
                 oldY = (int) y;
                 directions = FindNextDir(grid.getTile((int) x / TILE_SIZE, (int) y / TILE_SIZE));
                 //System.out.println("oldY: " + oldY + " Y: " + y);
@@ -119,12 +119,8 @@ public class Enemy implements Entity  {
             else y += Delta() * directions[1] * speed * gameSpeed;
         }
         else {
-            lives--;
-            if(lives <= 0 ){
-                lives = 0;
-                System.exit(0);
-            }
             Die();
+            lives--;
         }
     }
 
@@ -133,7 +129,7 @@ public class Enemy implements Entity  {
         return false;
     }
 
-    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////ase
    /* private boolean CheckpointReached(){
         boolean reached = false;
         Tile t = checkpoints.get(currentCheckpoint).getTile();
@@ -216,7 +212,7 @@ public class Enemy implements Entity  {
             //System.out.println("R");
         }
         else{
-            dir[0] = 3;
+            dir[0] = 2;
             dir[1] = 3;
         }
         return dir;
