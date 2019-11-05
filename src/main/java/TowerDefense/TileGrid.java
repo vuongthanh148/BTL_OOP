@@ -25,7 +25,7 @@ public class TileGrid {
         }
     }
 
-    public TileGrid(int[][] newMap) {
+    /*public TileGrid(int[][] newMap) {
         this.tilesWide = newMap[0].length;
         this.tilesHigh = newMap.length ;
         map = new Tile[tilesWide][tilesHigh];
@@ -50,11 +50,11 @@ public class TileGrid {
             }
         }
 
-        /*for (int j = 0; j < map.length; j++){
+        for (int j = 0; j < map.length; j++){
                 map[ j][map[i].length - 1] = new Tile(i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, TILE_SIZE, TileType.MenuTower);
-        }*/
+        }
 
-    }
+    }*/
 
     public void setTile(int xCoord, int yCoord, TileType type){
         map[xCoord][yCoord] = new Tile(xCoord*TILE_SIZE, yCoord*TILE_SIZE,TILE_SIZE,TILE_SIZE,type);

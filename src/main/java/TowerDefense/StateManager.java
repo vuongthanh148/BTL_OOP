@@ -2,34 +2,22 @@ package TowerDefense;
 
 import java.io.IOException;
 
+import static TowerDefense.WaveManager.waveNumber;
 import static Util.Sound.backgroundSound;
 
 public class StateManager {
 
     public static enum GameState {
-        MAINMENU, GAME, EDITOR
+        MAINMENU, GAME, EDITOR, GAMEOVER
     }
 
     public static GameState gameState = GameState.MAINMENU;
     public static MainMenu mainMenu;
     public static Game game;
     public static Editor editor;
+    public static GameOver gameover;
     static boolean first = true;
 
-    static int[][] map={
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0},
-            {0,1,0,0,0,0,0,0,2,0,0,1,0,0,2,0,0,0,1,1},
-            {0,1,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0},
-            {0,0,0,1,0,0,0,0,0,0,0,1,1,1,1,1,0,0,1,0},
-            {0,0,0,1,1,1,1,1,2,0,0,0,0,0,2,1,0,0,1,0},
-            {0,0,0,0,0,0,0,1,0,2,0,0,0,2,0,1,0,0,1,0},
-            {0,0,0,0,0,0,0,1,0,0,2,2,2,0,0,1,0,0,1,0},
-            {1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-    };
 
     public static void update() throws IOException {
         if(first) {
@@ -45,13 +33,18 @@ public class StateManager {
                 break;
             case GAME:
                 if (game == null){
-                    game = new Game(map);
+                    String s = "Stage1";
+                    game = new Game(s);
                 }
                 game.Update();
                 break;
             case EDITOR:
                 if (editor == null) editor = new Editor();
                 editor.update();
+                break;
+            case GAMEOVER:
+                if(gameover == null) gameover = new GameOver();
+                gameover.update();
                 break;
         }
     }
