@@ -7,21 +7,19 @@ import TowerDefense.StateManager.GameState;
 
 import java.io.IOException;
 
-import static TowerDefense.Game.TILE_SIZE;
-import static TowerDefense.WaveManager.waveNumber;
 import static Util.Artist.*;
 import static TowerDefense.StateManager.*;
-import static com.sun.deploy.trace.TraceLevel.UI;
 
-public class GameOver {
-    private Texture background;
+public class EndGame {
+    private Texture defeatLogo, victoryLogo;
     private UI menuUI;
 
-    public GameOver() {
-        //background = QuickLoad ("mainmenu.png");
+    public EndGame() {
+        defeatLogo = QuickLoad ("defeat.png");
+        victoryLogo = QuickLoad("victory.png");
         menuUI = new UI();
-        menuUI.addButton("Play", "playButton.png", WIDTH / 2 - 128, (int) (HEIGHT * 0.45f));
-        menuUI.addButton("Quit", "quit.png", WIDTH/2 - 128, (int) (HEIGHT*0.55f));
+        menuUI.addButton("Play", "playButton.png", 284, (int) (HEIGHT * 0.65f));
+        menuUI.addButton("Quit", "quit.png",740, (int) (HEIGHT*0.65f));
     }
 
     private void updateButtons() throws IOException{
@@ -36,8 +34,9 @@ public class GameOver {
     }
 
     public void update() throws IOException {
-        //DrawQuadTex(background, 0, 0, 2048, 1024);
         menuUI.draw();
+        if(Player.victory) DrawQuadTex(victoryLogo, 390, 0, defeatLogo.getTextureWidth(), defeatLogo.getTextureHeight());
+        else DrawQuadTex(defeatLogo, 390, 0, defeatLogo.getTextureWidth(), defeatLogo.getTextureHeight());
         updateButtons();
     }
 }

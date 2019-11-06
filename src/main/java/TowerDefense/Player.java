@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 import static TowerDefense.Game.TILE_SIZE;
 import static TowerDefense.Game.pause;
-import static TowerDefense.StateManager.game;
 import static TowerDefense.StateManager.gameover;
 import static TowerDefense.WaveManager.waveNumber;
 import static Util.Artist.*;
@@ -25,10 +24,13 @@ public class Player {
     private int cur;
     private WaveManager waveManager;
     private static ArrayList<Tower> towerList;
-    boolean leftMouseDown = false, rightMouseButtonDown = false, holdingTower = false;
+    boolean leftMouseDown = false;
+    boolean rightMouseButtonDown = false;
+    boolean holdingTower = false;
+    static boolean victory = false;
     private TrueTypeFont font, font1, font2;
     private Tower tempTower;
-    public static int stageNumber = 1;
+    public static int stageNumber = 3;
 
 
 
@@ -106,11 +108,6 @@ public class Player {
 
     public void update() throws IOException {
         this.grid = Game.grid;
-        if(lives == 0 ){
-            pause = true;
-            gameover = new GameOver();
-            gameover.update();
-        }
         drawString();
         drawStringTower(TowerType.NormalTower,384,648);
         drawStringTower(TowerType.MachineGunTower,612,648);
@@ -128,6 +125,19 @@ public class Player {
             t.update();
             t.draw();
             t.updateEnemyList(waveManager.getCurrentWave().getEnemyList());
+        }
+        if(stageNumber == 3 && waveNumber == 4) {
+            stageNumber = 3;
+            pause = true;
+            gameover = new EndGame();
+            victory = true;
+            gameover.update();
+        }
+        if(lives == 0 ){
+            pause = true;
+            gameover = new EndGame();
+            victory = false;
+            gameover.update();
         }
 
         //Handle Mouse

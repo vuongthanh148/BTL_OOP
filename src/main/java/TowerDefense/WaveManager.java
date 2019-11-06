@@ -32,7 +32,7 @@ public class WaveManager {
     private void newWave(){
         currentWave = new Wave(enemyTypes, timeBetweenEnemies, enemiesPerWave);
         waveNumber++;
-        if(waveNumber == 4){
+        if(waveNumber == 4 && stageNumber!=3){
             waveNumber = 0;
             stageNumber++;
             Player.nextStage();
