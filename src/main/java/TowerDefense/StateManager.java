@@ -2,7 +2,6 @@ package TowerDefense;
 
 import java.io.IOException;
 
-import static TowerDefense.WaveManager.waveNumber;
 import static Util.Sound.backgroundSound;
 
 public class StateManager {
@@ -15,7 +14,7 @@ public class StateManager {
     public static MainMenu mainMenu;
     public static Game game;
     public static Editor editor;
-    public static GameOver gameover;
+    public static EndGame gameover;
     static boolean first = true;
 
 
@@ -43,7 +42,7 @@ public class StateManager {
                 editor.update();
                 break;
             case GAMEOVER:
-                if(gameover == null) gameover = new GameOver();
+                if(gameover == null) gameover = new EndGame();
                 gameover.update();
                 break;
         }
