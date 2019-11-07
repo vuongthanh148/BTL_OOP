@@ -1,6 +1,5 @@
 package UI;
 
-import TowerDefense.TowerType;
 import org.newdawn.slick.opengl.Texture;
 
 public class Button {
@@ -17,14 +16,6 @@ public class Button {
         this.width = width;
         this.height = height;
     }
-   /* public Button(String name, TowerType towerType, int x, int y, int side) {
-        this.name = name;
-        this.textures = towerType.textures;
-        this.x = x;
-        this.y = y;
-        this.width = side;
-        this.height = side;
-    }*/
 
     public Button(String name, Texture texture, int x, int y) {
         this.name = name;

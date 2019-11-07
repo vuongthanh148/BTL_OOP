@@ -1,10 +1,7 @@
 package UI;
 
-import TowerDefense.TowerType;
 import org.lwjgl.input.Mouse;
-import org.newdawn.slick.opengl.Texture;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 import static Util.Artist.*;
