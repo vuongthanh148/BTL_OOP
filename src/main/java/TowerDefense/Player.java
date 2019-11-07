@@ -4,6 +4,8 @@ import Util.Artist;
 import Util.Leveler;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
+import org.newdawn.slick.Color;
+import org.newdawn.slick.TrueTypeFont;
 
 import java.awt.*;
 import java.io.IOException;
@@ -14,8 +16,6 @@ import static TowerDefense.Game.pause;
 import static TowerDefense.StateManager.gameover;
 import static TowerDefense.WaveManager.waveNumber;
 import static Util.Artist.*;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.TrueTypeFont;
 
 public class Player {
     public static int money, lives;
@@ -24,13 +24,12 @@ public class Player {
     private int cur;
     private WaveManager waveManager;
     private static ArrayList<Tower> towerList;
-    boolean leftMouseDown = false;
-    boolean rightMouseButtonDown = false;
-    boolean holdingTower = false;
+    boolean leftMouseDown = false, rightMouseButtonDown = false;;
+    boolean holdingTower = false, choosingTowerUpgrade = false, choosingTowerSell = false;
     static boolean victory = false;
     private TrueTypeFont font, font1, font2;
     private Tower tempTower;
-    public static int stageNumber = 3;
+    public static int stageNumber = 1;
 
 
 
@@ -71,14 +70,18 @@ public class Player {
         String mg = "Machine Gun";
         String s = "Sniper Gun";
         String n = "Normal Gun";
+        String sell = "Sell";
+        String u = "Upgrade";
         //String menu ="MENU TOWER: ";
         font1.drawString(20, 655 , m, Color.white);
         font1.drawString(200, 655, l, Color.white);
         font1.drawString(20, 695, w, Color.white);
+        font1.drawString(200, 695, sg, Color.white);
         font.drawString(330, 715, n, Color.white);
         font.drawString(558, 715, mg, Color.white);
         font.drawString(788, 715, s, Color.white);
-        font.drawString(200, 695, sg, Color.white);
+        font.drawString(1075, 715, sell, Color.white);
+        font.drawString(1150, 715, u, Color.white);
     }
     public void drawStringTower(TowerType towerType,int x, int y){
         //Color.white.bind();
@@ -114,13 +117,20 @@ public class Player {
         drawStringTower(TowerType.SniperTower,850,648);
 
         //leftMouseDown = false;
+
         //Update holding Tower
         if(holdingTower){
             tempTower.setX(getMouseTile().getX());
             tempTower.setY(getMouseTile().getY());
-            DrawQuadTex(tempTower.textures[2],tempTower.getX() - (tempTower.getRange() - TILE_SIZE/2),tempTower.getY() - (tempTower.getRange() - TILE_SIZE/2), tempTower.getRange()*2, tempTower.getRange()*2);
+            //Draw range
+            DrawQuadTex(tempTower.textures[3],tempTower.getX() - (tempTower.getRange() - TILE_SIZE/2),tempTower.getY() - (tempTower.getRange() - TILE_SIZE/2), tempTower.getRange()*2, tempTower.getRange()*2);
             tempTower.draw();
         }
+        //update choosing tower
+        else if(choosingTowerSell || choosingTowerUpgrade){
+            DrawQuadTex(QuickLoad("pointer.png"), Mouse.getX(), HEIGHT -1 - Mouse.getY(), 32,32);
+        }
+
         for(Tower t: towerList){
             t.update();
             t.draw();
@@ -145,9 +155,20 @@ public class Player {
         if( Mouse.isButtonDown(0) && !leftMouseDown && !grid.getFloatTile(Mouse.getX(),Mouse.getY()).isPlaced && grid.getFloatTile(Mouse.getX(),Mouse.getY()).getType().buildable ){
             placeTower();
         }
-
         else if( Mouse.isButtonDown(1) && holdingTower){
             holdingTower = false;
+        }
+
+        /**
+         * alo alo
+         */
+        //upgrade and sell tower
+        if( Mouse.isButtonDown(0) && !leftMouseDown){
+            chooseTower();
+        }
+        else if( Mouse.isButtonDown(1) ){
+            choosingTowerSell = false;
+            choosingTowerUpgrade = false;
         }
 
         leftMouseDown = Mouse.isButtonDown(0);
@@ -170,6 +191,7 @@ public class Player {
             }
         }
     }
+
     public Tile getMouseTile(){
         return grid.getTile(Mouse.getX()/TILE_SIZE,(HEIGHT - Mouse.getY() -1) / TILE_SIZE);
     }
@@ -182,10 +204,29 @@ public class Player {
         this.money = money;
     }
 
+    public void chooseTower(){
+        for(int i=0;i<towerList.size();i++){
+            if(getMouseTile().getX()/64 == towerList.get(i).getX()/64 && getMouseTile().getY()/64 == towerList.get(i).getY()/64 && towerList.get(i).type.towerLevel<2 ){
+               if(choosingTowerSell ){
+                   money += towerList.get(i).getPrice()/2;
+                   grid.getTile((int) towerList.get(i).getX()/64,(int) towerList.get(i).getY()/64).isPlaced = false;
+                   choosingTowerSell = false;
+                   towerList.remove(i);
+                }
+               if(choosingTowerUpgrade && money >= towerList.get(i).getPrice()*(towerList.get(i).type.towerLevel+1)){
+                   towerList.get(i).type.towerLevel++;
+                   money -= towerList.get(i).getPrice()*towerList.get(i).type.towerLevel;
+                   choosingTowerUpgrade = false;
+               }
+            }
+        }
+    }
+
     public void pickTower(Tower tower){
         tempTower = tower;
         holdingTower = true;
     }
+
     private void placeTower(){
         if(holdingTower) {
             if (money - tempTower.getPrice() >= 0) {

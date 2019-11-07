@@ -19,7 +19,7 @@ public class Editor {
     private int cur = 0;
 
     public Editor() {
-        grid = loadMap("LastMap");
+        grid = loadMap("Stage3");
         this.cur = 0;
         this.types = new TileType[4];
         this.types[0] = TileType.Grass;

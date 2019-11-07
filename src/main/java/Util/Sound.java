@@ -1,13 +1,9 @@
 package Util;
 
-import UI.UI;
-import org.lwjgl.input.Mouse;
 import org.newdawn.slick.openal.Audio;
 import org.newdawn.slick.openal.AudioLoader;
-import org.newdawn.slick.openal.SoundStore;
 import org.newdawn.slick.util.ResourceLoader;
 
-import javax.annotation.Resource;
 import java.io.IOException;
 
 
@@ -18,7 +14,7 @@ public class Sound {
 
     static {
         try {
-            backgroundSound = AudioLoader.getAudio("OGG", ResourceLoader.getResourceAsStream("vietnam.ogg"));
+            backgroundSound = AudioLoader.getAudio("OGG", ResourceLoader.getResourceAsStream("backgroundmusic.ogg"));
             machinegunSound = AudioLoader.getAudio("OGG", ResourceLoader.getResourceAsStream("machinegun.ogg"));
             sniperSound = AudioLoader.getAudio("OGG", ResourceLoader.getResourceAsStream("sniper.ogg"));
         } catch (IOException e) {
@@ -26,7 +22,7 @@ public class Sound {
         }
     }
     public static void backgroundSound(){
-        backgroundSound.playAsSoundEffect(1.0f, 0.2f, true);
+        backgroundSound.playAsSoundEffect(1.0f, 0.4f, true);
     }
 
     public static void machinegunSound(){

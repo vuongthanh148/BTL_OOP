@@ -1,11 +1,7 @@
 package TowerDefense;
 
 import java.util.ArrayList;
-import TowerDefense.Game.*;
-import Util.Leveler;
-import javafx.stage.Stage;
 
-import static TowerDefense.Player.nextStage;
 import static TowerDefense.Player.stageNumber;
 
 public class WaveManager {
@@ -19,7 +15,7 @@ public class WaveManager {
         this.timeBetweenEnemies = timeBetweenEnemies;
         this.enemyTypes = enemyTypes;
         this.timeSinceLastWave = 0;
-        this.waveNumber = 2;
+        this.waveNumber = 0;
         this.currentWave = null;
         newWave();
     }

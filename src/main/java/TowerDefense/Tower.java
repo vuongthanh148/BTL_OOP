@@ -1,18 +1,17 @@
 package TowerDefense;
 
-import com.sun.xml.internal.bind.v2.model.annotation.Quick;
 import org.newdawn.slick.opengl.Texture;
 
 import java.util.ArrayList;
 
 import static TowerDefense.Enemy.startTile;
 import static TowerDefense.Game.*;
-import static Util.Artist.*;
-import static Util.Clock.*;
+import static Util.Artist.DrawQuadTexRot;
+import static Util.Clock.Delta;
 import static Util.Sound.machinegunSound;
 import static Util.Sound.sniperSound;
 
-public abstract class Tower implements  Entity {
+public abstract class Tower implements Entity {
     private float x,y, timeSinceLastShot, firingSpeed, angle;
     private int width, height, damage, range, price;
     private Enemy target;
@@ -21,6 +20,7 @@ public abstract class Tower implements  Entity {
     private ArrayList<Bullet> bullets;
     private boolean foundTarget, outOfRange;
     public TowerType type;
+    public static int towerLevel = 1;
 
 
     public Tower(TowerType type, Tile startTile, ArrayList<Enemy> enemies)  {
@@ -109,7 +109,7 @@ public abstract class Tower implements  Entity {
     }
 
     public void draw(){
-        DrawQuadTexRot(textures[0],x,y,width,height,angle );
+        DrawQuadTexRot(textures[type.towerLevel-1],x,y,width,height,angle );
     }
 
     private Enemy findTarget(){ //Aiming to enemy || DONT TOUCH THIS || :D
@@ -136,16 +136,18 @@ public abstract class Tower implements  Entity {
 
     public void Shoot(){
         timeSinceLastShot = 0;
-        if(type == TowerType.NormalTower){
-            machinegunSound();
+        if(sound){
+            if(type == TowerType.NormalTower){
+                machinegunSound();
+            }
+            else if(type == TowerType.MachineGunTower){
+                machinegunSound();
+            }
+            else if(type == TowerType.SniperTower){
+                sniperSound();
+            }
         }
-        else if(type == TowerType.MachineGunTower){
-            machinegunSound();
-        }
-        else if(type == TowerType.SniperTower){
-            sniperSound();
-        }
-        bullets.add(new Bullet(type.textures[1], target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 32, 32, type.bulletSpeed, damage ));// sua lai width, height
+        bullets.add(new Bullet(type.textures[2], target, x + TILE_SIZE / 4, y + TILE_SIZE / 4, 32, 32, type.bulletSpeed, damage ));// sua lai width, height
     }
 
     public void updateEnemyList( ArrayList<Enemy> newList){
