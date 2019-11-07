@@ -2,6 +2,7 @@ package TowerDefense;
 
 import java.io.IOException;
 
+import static TowerDefense.Game.sound;
 import static Util.Sound.backgroundSound;
 
 public class StateManager {
@@ -15,13 +16,19 @@ public class StateManager {
     public static Game game;
     public static Editor editor;
     public static EndGame gameover;
-    static boolean first = true;
+    static boolean isPlaying = false;
 
 
     public static void update() throws IOException {
-        if(first) {
-            backgroundSound();
-            first = false;
+        if(sound){
+            if(!isPlaying){
+                isPlaying = true;
+                backgroundSound();
+            }
+        }
+        else{
+            backgroundSound.stop();
+            isPlaying = false;
         }
         switch (gameState) {
             case MAINMENU:

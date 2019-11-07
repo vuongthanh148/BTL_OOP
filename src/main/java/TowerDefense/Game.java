@@ -16,7 +16,8 @@ public class Game {
     private UI towerPickerUI;
     public String NamePause = "run.png";
     public String NameSpeed = "speed.png";
-    public static boolean pause = true, accelerated = false, endgame = false;
+    public String NameSound = "soundOn.png";
+    public static boolean pause = true, accelerated = false, endgame = false, sound = true;
     public static int gameSpeed = 1;
 
 
@@ -28,7 +29,7 @@ public class Game {
         enemyTypes[1] = new SmallEnemy(0,8,grid);
         enemyTypes[2] = new TankerEnemy(0,8,grid);
         enemyTypes[3] = new BossEnemy(0,8,grid);
-        waveManager = new WaveManager(enemyTypes,1, 20);
+        waveManager = new WaveManager(enemyTypes,(float) 1.5, 20);
         player = new Player(grid, waveManager);
         player.init();
         setupUI();
@@ -43,6 +44,10 @@ public class Game {
         towerPickerUI.addButton("SniperTower","SniperTower.png",        776,650,64,64);
         towerPickerUI.addButton("ButtonPause",NamePause,1210,0,64,64);
         towerPickerUI.addButton("AccelerateSpeed",NameSpeed,1142,0,64,64);
+        towerPickerUI.addButton("AdjustSound", NameSound, 1074, 0, 64,64);
+        towerPickerUI.addButton("SellTower", "sell.png", 1060, 645, 64,64);
+        towerPickerUI.addButton("UpgradeTower", "upgrade.png", 1150, 645, 64,64);
+
     }
 
     private void updateUI(){
@@ -50,6 +55,7 @@ public class Game {
         if(Mouse.next()){
             boolean mouseClicked = Mouse.isButtonDown(0);
             if(mouseClicked) {
+                //Set Tower
                 if (towerPickerUI.isButtonClicked("NormalTower")) {
                     player.pickTower(new TowerManager(TowerType.NormalTower, grid.getTile(0, 0), waveManager.getListEnemy()));
                 }
@@ -59,6 +65,29 @@ public class Game {
                 else if (towerPickerUI.isButtonClicked("MachineGunTower")) {
                     player.pickTower(new TowerManager(TowerType.MachineGunTower, grid.getTile(0, 0), waveManager.getListEnemy()));
                 }
+                //Sell Tower
+                else if(towerPickerUI.isButtonClicked("SellTower")){
+                    player.choosingTowerSell = true;
+                }
+                else if(towerPickerUI.isButtonClicked("UpgradeTower")){
+                    player.choosingTowerUpgrade = true;
+                }
+                //Sound control
+                if(towerPickerUI.isButtonClicked("AdjustSound")){
+                    if(sound){
+                        sound = false;
+                        towerPickerUI.removeButton("AdjustSound");
+                        NameSpeed = "soundOff.png";
+                        towerPickerUI.addButton("AdjustSound",NameSpeed,1074,0,64,64);
+                    }
+                    else{
+                        sound = true;
+                        towerPickerUI.removeButton("AdjustSound");
+                        NameSpeed = "soundOn.png";
+                        towerPickerUI.addButton("AdjustSound",NameSpeed,1074,0,64,64);
+                    }
+                }
+                //Game Speed
                 if(towerPickerUI.isButtonClicked("AccelerateSpeed")){
                     if(!accelerated){
                         gameSpeed = 2;

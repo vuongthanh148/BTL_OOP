@@ -1,9 +1,5 @@
 package TowerDefense;
 
-import org.newdawn.slick.opengl.Texture;
-
-import java.util.ArrayList;
-
 import static Util.Artist.QuickLoad;
 
 public class NormalEnemy extends Enemy {
@@ -13,7 +9,7 @@ public class NormalEnemy extends Enemy {
         this.texture = QuickLoad("normal_enemy.png");
         health = 500;
         speed = 100;
-        reward = 20;
+        reward = 5;
     }
 
 }
