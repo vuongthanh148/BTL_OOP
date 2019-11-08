@@ -224,6 +224,9 @@ public class Player {
                if(choosingTowerUpgrade && money >= towerList.get(i).getPrice()*(towerList.get(i).type.towerLevel+1)){
                    towerList.get(i).type.towerLevel++;
                    money -= towerList.get(i).getPrice()*towerList.get(i).type.towerLevel;
+                   towerList.get(i).type.range += 50;
+                   towerList.get(i).type.damage *= 1.2;
+                   towerList.get(i).type.bulletSpeed *= 1.1;
                    choosingTowerUpgrade = false;
                }
             }

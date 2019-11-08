@@ -19,7 +19,7 @@ public class EndGame {
         defeatLogo = QuickLoad ("defeat.png");
         victoryLogo = QuickLoad("victory.png");
         menuUI = new UI();
-        menuUI.addButton("Play", "playButton.png", 284, (int) (HEIGHT * 0.65f));
+        menuUI.addButton("Play", "restart.png", 284, (int) (HEIGHT * 0.65f));
         menuUI.addButton("Quit", "quit.png",740, (int) (HEIGHT*0.65f));
     }
 
