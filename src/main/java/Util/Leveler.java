@@ -1,8 +1,8 @@
 package Util;
 
-import TowerDefense.Tile;
-import TowerDefense.TileGrid;
-import TowerDefense.TileType;
+import TowerDefense.GameField.GameEntity.GameTile.Tile.Tile;
+import TowerDefense.GameField.GameEntity.GameTile.Tile.TileGrid;
+import TowerDefense.GameField.GameEntity.GameTile.Tile.TileType;
 
 import java.io.*;
 
