@@ -107,6 +107,12 @@ public class Player {
                 grid.getTile(i,j).isPlaced = false;
             }
         }
+
+        //reset tower level
+        for(int i=0;i<towerList.size();i++){
+            towerList.get(i).type.towerLevel = 1;
+        }
+
         //reset tower
         towerList.clear();
         //reset money and lives
@@ -184,7 +190,7 @@ public class Player {
         rightMouseButtonDown = Mouse.isButtonDown(1);
 
         //Handle Keyboard
-        while(Keyboard.next()){
+        /*while(Keyboard.next()){
             if(Keyboard.getEventKeyState()){
                 switch ((Keyboard.getEventKey())){
                     case Keyboard.KEY_C:
@@ -198,7 +204,7 @@ public class Player {
                         break;
                 }
             }
-        }
+        }*/
     }
 
     public Tile getMouseTile(){
@@ -213,6 +219,7 @@ public class Player {
         this.money = money;
     }
 
+    //UPGRADE OR SELL TOWER
     public void chooseTower(){
         for(int i=0;i<towerList.size();i++){
             if(getMouseTile().getX()/64 == towerList.get(i).getX()/64 && getMouseTile().getY()/64 == towerList.get(i).getY()/64  ){
