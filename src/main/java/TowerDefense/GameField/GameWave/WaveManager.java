@@ -3,6 +3,7 @@ package TowerDefense.GameField.GameWave;
 import TowerDefense.GameField.GameEntity.Enemy.*;
 import TowerDefense.GamePlay.Player;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static TowerDefense.GamePlay.Player.stageNumber;
@@ -23,7 +24,7 @@ public class WaveManager {
         newWave();
     }
 
-    public void update(){
+    public void update() throws IOException {
         if(!currentWave.isCompleted()) currentWave.Update();
         else newWave();
     }

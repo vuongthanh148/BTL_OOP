@@ -2,6 +2,7 @@ package TowerDefense.GameField.GameWave;
 
 import TowerDefense.GameField.GameEntity.Enemy.Enemy;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -28,7 +29,7 @@ public class Wave{
         //Spawn();
     }
 
-    public void Update(){
+    public void Update() throws IOException {
         allEnemyDie = true;
         if(!pause){
             if(spawnedEnemy < enemiesPerWave){
@@ -53,7 +54,7 @@ public class Wave{
         }
     }
 
-    public void Spawn(){
+    public void Spawn() throws IOException {
         Random r = new Random();
         int index = r.nextInt(4);
         enemyList.add(new Enemy(enemyTypes[index].getTexture(),enemyTypes[index].getStartTile(), game.grid,

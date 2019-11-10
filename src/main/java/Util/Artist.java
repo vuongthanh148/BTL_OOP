@@ -80,7 +80,8 @@ public class Artist {
 
     public static Texture LoadTexture(String path, String fileType) {
         Texture tex = null;
-        InputStream in = ResourceLoader.getResourceAsStream(path);
+        String s  ="src/main/resources/" + path;
+        InputStream in = ResourceLoader.getResourceAsStream(s);
         try {
             tex = TextureLoader.getTexture(fileType, in);
         } catch (IOException e) {

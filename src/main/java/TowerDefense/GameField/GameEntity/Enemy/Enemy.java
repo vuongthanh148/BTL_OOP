@@ -6,6 +6,8 @@ import TowerDefense.GameField.GameEntity.GameTile.Tile.Tile;
 import TowerDefense.GameField.GameEntity.GameTile.Tile.TileGrid;
 import org.newdawn.slick.opengl.Texture;
 
+import java.io.IOException;
+
 import static TowerDefense.GamePlay.Player.lives;
 import static TowerDefense.GamePlay.Player.money;
 import static TowerDefense.GameStage.Game.TILE_SIZE;
@@ -25,7 +27,6 @@ public class Enemy implements GameEntity {
     boolean found = false;
 
     public Enemy(int x, int y, TileGrid grid) {
-        //this.texture = QuickLoad("enemy.png");
         this.grid = grid;
         this.startTile = grid.getTile(x,y);
         this.x = x*64;
@@ -43,7 +44,7 @@ public class Enemy implements GameEntity {
         this.directions = FindNextDir(this.getStartTile());
     }
 
-    public Enemy(Texture texture, Tile startTile, TileGrid grid,int width, int height,  float health, float speed, int reward){
+    public Enemy(Texture texture, Tile startTile, TileGrid grid,int width, int height,  float health, float speed, int reward) throws IOException {
         this.texture = texture;
         this.healthBackground = QuickLoad("HealthBackground.PNG");
         this.healthForeground= QuickLoad("HealthForeground.PNG");
