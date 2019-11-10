@@ -1,21 +1,13 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="BTL_OOP:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/BTL_OOP_jar</output-path>
+    <output-path>$PROJECT_DIR$</output-path>
     <root id="archive" name="BTL_OOP.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
-      </element>
       <element id="module-output" name="BTL_OOP" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jars/lwjgl.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jars/jogg-0.0.7.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jars/lwjgl_util.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jars/slick-util.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jars/jorbis-0.0.15.jar" path-in-jar="/" />
-      <element id="file-copy" path="$PROJECT_DIR$/lib/jars/lwjgl.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/lib/jars/jogg-0.0.7.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/lib/jars/lwjgl_util.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/lib/jars/slick-util.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/lib/jars/jorbis-0.0.15.jar" />
     </root>
   </artifact>
 </component>

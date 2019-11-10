@@ -107,6 +107,12 @@ public class Player {
                 grid.getTile(i,j).isPlaced = false;
             }
         }
+
+        //reset tower level
+        for(int i=0;i<towerList.size();i++){
+            towerList.get(i).type.towerLevel = 1;
+        }
+
         //reset tower
         towerList.clear();
         //reset money and lives
@@ -126,6 +132,12 @@ public class Player {
 
         //leftMouseDown = false;
 
+        for(Tower t: towerList){
+            t.update();
+            t.draw();
+            t.updateEnemyList(waveManager.getCurrentWave().getEnemyList());
+        }
+
         //Update holding Tower
         if(holdingTower){
             tempTower.setX(getMouseTile().getX());
@@ -139,11 +151,6 @@ public class Player {
             DrawQuadTex(QuickLoad("pointer.png"), Mouse.getX(), HEIGHT -1 - Mouse.getY(), 32,32);
         }
 
-        for(Tower t: towerList){
-            t.update();
-            t.draw();
-            t.updateEnemyList(waveManager.getCurrentWave().getEnemyList());
-        }
         if(stageNumber == 3 && waveNumber == 4) {
             stageNumber = 3;
             pause = true;
@@ -183,7 +190,7 @@ public class Player {
         rightMouseButtonDown = Mouse.isButtonDown(1);
 
         //Handle Keyboard
-        while(Keyboard.next()){
+        /*while(Keyboard.next()){
             if(Keyboard.getEventKeyState()){
                 switch ((Keyboard.getEventKey())){
                     case Keyboard.KEY_C:
@@ -197,7 +204,7 @@ public class Player {
                         break;
                 }
             }
-        }
+        }*/
     }
 
     public Tile getMouseTile(){
@@ -212,16 +219,17 @@ public class Player {
         this.money = money;
     }
 
+    //UPGRADE OR SELL TOWER
     public void chooseTower(){
         for(int i=0;i<towerList.size();i++){
-            if(getMouseTile().getX()/64 == towerList.get(i).getX()/64 && getMouseTile().getY()/64 == towerList.get(i).getY()/64 && towerList.get(i).type.towerLevel<2 ){
+            if(getMouseTile().getX()/64 == towerList.get(i).getX()/64 && getMouseTile().getY()/64 == towerList.get(i).getY()/64  ){
                if(choosingTowerSell ){
                    money += towerList.get(i).getPrice()/2;
                    grid.getTile((int) towerList.get(i).getX()/64,(int) towerList.get(i).getY()/64).isPlaced = false;
                    choosingTowerSell = false;
                    towerList.remove(i);
                 }
-               if(choosingTowerUpgrade && money >= towerList.get(i).getPrice()*(towerList.get(i).type.towerLevel+1)){
+               if(choosingTowerUpgrade && money >= towerList.get(i).getPrice()*(towerList.get(i).type.towerLevel+1) && towerList.get(i).type.towerLevel<2){
                    towerList.get(i).type.towerLevel++;
                    money -= towerList.get(i).getPrice()*towerList.get(i).type.towerLevel;
                    towerList.get(i).type.range += 50;

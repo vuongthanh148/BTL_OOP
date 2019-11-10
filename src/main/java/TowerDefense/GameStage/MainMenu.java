@@ -5,13 +5,15 @@ import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;
 import TowerDefense.GameStage.StateManager.GameState;
 
+import java.io.IOException;
+
 import static Util.Artist.*;
 
 public class MainMenu {
     private Texture background, startLogo;
     private UI menuUI;
 
-    public MainMenu() {
+    public MainMenu() throws IOException {
        background = QuickLoad ("mainmenu.png");
        startLogo = QuickLoad("gamelogo.png");
        menuUI = new UI();
