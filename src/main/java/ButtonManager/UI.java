@@ -1,10 +1,10 @@
-package UI;
+package ButtonManager;
 
 import org.lwjgl.input.Mouse;
 
 import java.util.ArrayList;
 
-import static Util.Artist.*;
+import static Util.Drawer.*;
 
 public class UI {
     private ArrayList<Button> buttonList;

@@ -6,7 +6,7 @@ import org.lwjgl.opengl.Display;
 
 import java.io.IOException;
 
-import static Util.Artist.*;
+import static Util.Drawer.*;
 
 public class Main {
     public Main() throws IOException {
