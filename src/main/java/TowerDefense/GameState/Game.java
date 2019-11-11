@@ -1,11 +1,11 @@
-package TowerDefense.GameStage;
+package TowerDefense.GameState;
 
 import TowerDefense.GameField.GameEntity.Enemy.*;
 import TowerDefense.GameField.GameEntity.GameTile.Tile.TileGrid;
 import TowerDefense.GameField.GameEntity.GameTile.Tower.TowerManager;
 import TowerDefense.GameField.GameEntity.GameTile.Tower.TowerType;
 import TowerDefense.GamePlay.Player;
-import TowerDefense.GameField.GameWave.*;
+import TowerDefense.GameField.GameStage.*;
 import ButtonManager.UI;
 import org.lwjgl.input.Mouse;
 

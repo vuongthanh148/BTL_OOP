@@ -5,9 +5,9 @@ import TowerDefense.GameField.GameEntity.GameTile.Tile.TileGrid;
 import TowerDefense.GameField.GameEntity.GameTile.Tile.TileType;
 import TowerDefense.GameField.GameEntity.GameTile.Tower.Tower;
 import TowerDefense.GameField.GameEntity.GameTile.Tower.TowerType;
-import TowerDefense.GameStage.EndGame;
-import TowerDefense.GameStage.Game;
-import TowerDefense.GameField.GameWave.WaveManager;
+import TowerDefense.GameState.EndGame;
+import TowerDefense.GameState.Game;
+import TowerDefense.GameField.GameStage.WaveManager;
 import Util.Drawer;
 import Util.EditMap;
 import org.lwjgl.input.Mouse;
@@ -18,10 +18,10 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static TowerDefense.GameStage.Game.TILE_SIZE;
-import static TowerDefense.GameStage.Game.pause;
-import static TowerDefense.GameStage.StateManager.gameover;
-import static TowerDefense.GameField.GameWave.WaveManager.waveNumber;
+import static TowerDefense.GameState.Game.TILE_SIZE;
+import static TowerDefense.GameState.Game.pause;
+import static TowerDefense.GameState.StateManager.gameover;
+import static TowerDefense.GameField.GameStage.WaveManager.waveNumber;
 import static Util.Drawer.*;
 
 public class Player {

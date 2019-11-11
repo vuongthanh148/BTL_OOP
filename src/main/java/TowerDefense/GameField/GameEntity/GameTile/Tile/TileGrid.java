@@ -2,7 +2,7 @@ package TowerDefense.GameField.GameEntity.GameTile.Tile;
 
 import Util.Drawer;
 
-import static TowerDefense.GameStage.Game.TILE_SIZE;
+import static TowerDefense.GameState.Game.TILE_SIZE;
 import static Util.Drawer.*;
 
 
