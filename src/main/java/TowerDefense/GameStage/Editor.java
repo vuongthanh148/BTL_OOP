@@ -8,8 +8,8 @@ import org.lwjgl.input.Mouse;
 
 
 import static TowerDefense.GameStage.Game.TILE_SIZE;
-import static Util.Artist.HEIGHT;
-import static Util.Leveler.*;
+import static Util.Drawer.HEIGHT;
+import static Util.EditMap.*;
 
 
 public class Editor {

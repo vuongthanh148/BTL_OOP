@@ -6,7 +6,7 @@ import TowerDefense.GameField.GameEntity.GameTile.Tile.TileType;
 
 import java.io.*;
 
-public class Leveler {
+public class EditMap {
 
     public static void saveMap(String mapName, TileGrid grid) {
         String mapData = "";

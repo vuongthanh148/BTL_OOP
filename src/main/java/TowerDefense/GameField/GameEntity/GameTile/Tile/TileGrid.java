@@ -1,9 +1,9 @@
 package TowerDefense.GameField.GameEntity.GameTile.Tile;
 
-import Util.Artist;
+import Util.Drawer;
 
 import static TowerDefense.GameStage.Game.TILE_SIZE;
-import static Util.Artist.*;
+import static Util.Drawer.*;
 
 
 public class TileGrid {
@@ -12,9 +12,9 @@ public class TileGrid {
     private int tilesWide, tilesHigh;
 
     public TileGrid(){ // Ham khoi tao set toan bo map la co? =))
-        this.tilesWide = Artist.WIDTH / TILE_SIZE;
-        this.tilesHigh = Artist.HEIGHT / TILE_SIZE;
-        map = new Tile[Artist.WIDTH / TILE_SIZE ][Artist.HEIGHT / TILE_SIZE];
+        this.tilesWide = Drawer.WIDTH / TILE_SIZE;
+        this.tilesHigh = Drawer.HEIGHT / TILE_SIZE;
+        map = new Tile[Drawer.WIDTH / TILE_SIZE ][Drawer.HEIGHT / TILE_SIZE];
         for(int i=0;i<map.length;i++) {
             int j;
             for ( j = 0; j < map[i].length-1; j++) {
@@ -60,7 +60,7 @@ public class TileGrid {
     }
 
     public Tile getTile(int xPlace, int yPlace){
-        if(xPlace < Artist.WIDTH/TILE_SIZE && xPlace > -1 && yPlace < Artist.HEIGHT/TILE_SIZE && yPlace > -1)
+        if(xPlace < Drawer.WIDTH/TILE_SIZE && xPlace > -1 && yPlace < Drawer.HEIGHT/TILE_SIZE && yPlace > -1)
         return map[xPlace][yPlace];
         else {
             Tile tmp = new Tile(0,0,0,0, TileType.NULL);
@@ -69,7 +69,7 @@ public class TileGrid {
     }
 
     public Tile getFloatTile(float xPlace, float yPlace){
-        if(xPlace < Artist.WIDTH && xPlace > -1 && yPlace < Artist.HEIGHT && yPlace > -1)
+        if(xPlace < Drawer.WIDTH && xPlace > -1 && yPlace < Drawer.HEIGHT && yPlace > -1)
             return map[(int)xPlace/TILE_SIZE][(int) (HEIGHT - 1 - yPlace)/ TILE_SIZE];
         else {
             Tile tmp = new Tile(0,0,0,0, TileType.Water);

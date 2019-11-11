@@ -2,7 +2,7 @@ package TowerDefense.GameField.GameEntity.Enemy;
 
 import TowerDefense.GameField.GameEntity.GameTile.Tile.TileGrid;
 
-import static Util.Artist.QuickLoad;
+import static Util.Drawer.QuickLoad;
 
 public class TankerEnemy extends Enemy {
 

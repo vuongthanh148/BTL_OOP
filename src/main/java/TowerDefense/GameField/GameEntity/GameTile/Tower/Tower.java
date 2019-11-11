@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import static TowerDefense.GameField.GameEntity.Enemy.Enemy.startTile;
 import static TowerDefense.GameStage.Game.*;
-import static Util.Artist.DrawQuadTexRot;
+import static Util.Drawer.DrawQuadTexRot;
 import static Util.Sound.machinegunSound;
 import static Util.Sound.sniperSound;
 import static Util.Timer.Delta;
@@ -24,7 +24,7 @@ public abstract class Tower implements GameEntity {
     private ArrayList<Bullet> bullets;
     private boolean foundTarget, outOfRange;
     public TowerType type;
-    public static int towerLevel = 1;
+    public int towerLevel = 1;
 
 
     public Tower(TowerType type, Tile startTile, ArrayList<Enemy> enemies)  {
@@ -44,6 +44,7 @@ public abstract class Tower implements GameEntity {
         this.angle = 0f;
         this.outOfRange = false;
         this.price = type.price;
+        this.towerLevel = 1;
     }
 
     public float getX() {
@@ -113,7 +114,7 @@ public abstract class Tower implements GameEntity {
     }
 
     public void draw(){
-        DrawQuadTexRot(textures[type.towerLevel-1],x,y,width,height,angle );
+        DrawQuadTexRot(textures[towerLevel-1],x,y,width,height,angle );
     }
 
     private Enemy findTarget(){ //Aiming to enemy || DONT TOUCH THIS || :D

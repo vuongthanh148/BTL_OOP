@@ -1,14 +1,14 @@
 package TowerDefense.GameStage;
 
 import TowerDefense.GamePlay.Player;
-import UI.UI;
+import ButtonManager.UI;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;
 import TowerDefense.GameStage.StateManager.GameState;
 
 import java.io.IOException;
 
-import static Util.Artist.*;
+import static Util.Drawer.*;
 import static TowerDefense.GameStage.StateManager.*;
 
 public class EndGame {

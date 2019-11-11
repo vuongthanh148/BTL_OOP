@@ -2,7 +2,7 @@ package TowerDefense.GameField.GameEntity.GameTile.Tile;
 
 import org.newdawn.slick.opengl.Texture;
 
-import static Util.Artist.*;
+import static Util.Drawer.*;
 
 public class Tile {
     private float x, y ;

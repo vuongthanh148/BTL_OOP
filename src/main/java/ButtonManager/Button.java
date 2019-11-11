@@ -1,4 +1,4 @@
-package UI;
+package ButtonManager;
 
 import org.newdawn.slick.opengl.Texture;
 

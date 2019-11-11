@@ -13,7 +13,7 @@ import java.io.InputStream;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL11.GL_MODELVIEW;
 
-public class Artist {
+public class Drawer {
     public static final int WIDTH = 20*64, HEIGHT= 12*64;
 
     public static void BeginSession(){

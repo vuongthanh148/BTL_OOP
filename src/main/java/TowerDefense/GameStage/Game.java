@@ -6,12 +6,12 @@ import TowerDefense.GameField.GameEntity.GameTile.Tower.TowerManager;
 import TowerDefense.GameField.GameEntity.GameTile.Tower.TowerType;
 import TowerDefense.GamePlay.Player;
 import TowerDefense.GameField.GameWave.*;
-import UI.UI;
+import ButtonManager.UI;
 import org.lwjgl.input.Mouse;
 
 import java.io.IOException;
 
-import static Util.Leveler.loadMap;
+import static Util.EditMap.loadMap;
 
 public class Game {
     public static TileGrid grid;

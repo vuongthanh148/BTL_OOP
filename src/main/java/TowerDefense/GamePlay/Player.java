@@ -8,9 +8,8 @@ import TowerDefense.GameField.GameEntity.GameTile.Tower.TowerType;
 import TowerDefense.GameStage.EndGame;
 import TowerDefense.GameStage.Game;
 import TowerDefense.GameField.GameWave.WaveManager;
-import Util.Artist;
-import Util.Leveler;
-import org.lwjgl.input.Keyboard;
+import Util.Drawer;
+import Util.EditMap;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.TrueTypeFont;
@@ -23,7 +22,7 @@ import static TowerDefense.GameStage.Game.TILE_SIZE;
 import static TowerDefense.GameStage.Game.pause;
 import static TowerDefense.GameStage.StateManager.gameover;
 import static TowerDefense.GameField.GameWave.WaveManager.waveNumber;
-import static Util.Artist.*;
+import static Util.Drawer.*;
 
 public class Player {
     public static int money, lives;
@@ -61,7 +60,7 @@ public class Player {
     }
 
     public void setTile(){
-        grid.setTile((int) Mouse.getX() / TILE_SIZE, (int)(Artist.HEIGHT - Mouse.getY() - 1 ) / TILE_SIZE, types[cur]);
+        grid.setTile((int) Mouse.getX() / TILE_SIZE, (int)(Drawer.HEIGHT - Mouse.getY() - 1 ) / TILE_SIZE, types[cur]);
     }
 
     public static void init(){
@@ -110,7 +109,7 @@ public class Player {
 
         //reset tower level
         for(int i=0;i<towerList.size();i++){
-            towerList.get(i).type.towerLevel = 1;
+            towerList.get(i).towerLevel = 1;
         }
 
         //reset tower
@@ -119,7 +118,7 @@ public class Player {
         init();
         //Change map
         String s = "Stage" + Integer.toString(stageNumber);
-        Game.grid = Leveler.loadMap(s);
+        Game.grid = EditMap.loadMap(s);
     }
 
 
@@ -229,9 +228,9 @@ public class Player {
                    choosingTowerSell = false;
                    towerList.remove(i);
                 }
-               if(choosingTowerUpgrade && money >= towerList.get(i).getPrice()*(towerList.get(i).type.towerLevel+1) && towerList.get(i).type.towerLevel<2){
-                   towerList.get(i).type.towerLevel++;
-                   money -= towerList.get(i).getPrice()*towerList.get(i).type.towerLevel;
+               if(choosingTowerUpgrade && money >= towerList.get(i).getPrice()*(towerList.get(i).towerLevel+1) && towerList.get(i).towerLevel<2){
+                   towerList.get(i).towerLevel++;
+                   money -= towerList.get(i).getPrice()*towerList.get(i).towerLevel;
                    towerList.get(i).type.range += 50;
                    towerList.get(i).type.damage *= 1.2;
                    towerList.get(i).type.bulletSpeed *= 1.1;
