@@ -1,4 +1,4 @@
-package TowerDefense.GameField.GameWave;
+package TowerDefense.GameField.GameStage;
 
 import TowerDefense.GameField.GameEntity.Enemy.*;
 import TowerDefense.GamePlay.Player;

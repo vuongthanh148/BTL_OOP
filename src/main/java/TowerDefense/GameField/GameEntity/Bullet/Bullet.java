@@ -3,7 +3,7 @@ package TowerDefense.GameField.GameEntity.Bullet;
 import TowerDefense.GameField.GameEntity.Enemy.*;
 import org.newdawn.slick.opengl.Texture;
 
-import static TowerDefense.GameStage.Game.*;
+import static TowerDefense.GameState.Game.*;
 import static Util.Drawer.*;
 import static Util.Timer.*;
 

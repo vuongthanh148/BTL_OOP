@@ -1,6 +1,6 @@
 package TowerDefense.GamePlay;
 
-import TowerDefense.GameStage.StateManager;
+import TowerDefense.GameState.StateManager;
 import Util.Timer;
 import org.lwjgl.opengl.Display;
 

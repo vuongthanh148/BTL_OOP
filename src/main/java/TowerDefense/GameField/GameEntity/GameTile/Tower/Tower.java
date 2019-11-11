@@ -9,7 +9,7 @@ import org.newdawn.slick.opengl.Texture;
 import java.util.ArrayList;
 
 import static TowerDefense.GameField.GameEntity.Enemy.Enemy.startTile;
-import static TowerDefense.GameStage.Game.*;
+import static TowerDefense.GameState.Game.*;
 import static Util.Drawer.DrawQuadTexRot;
 import static Util.Sound.machinegunSound;
 import static Util.Sound.sniperSound;

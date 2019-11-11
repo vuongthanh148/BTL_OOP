@@ -1,4 +1,4 @@
-package TowerDefense.GameField.GameWave;
+package TowerDefense.GameField.GameStage;
 
 import TowerDefense.GameField.GameEntity.Enemy.Enemy;
 
@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static TowerDefense.GameStage.Game.*;
+import static TowerDefense.GameState.Game.*;
 import static TowerDefense.GamePlay.Player.stageNumber;
-import static TowerDefense.GameStage.StateManager.game;
+import static TowerDefense.GameState.StateManager.game;
 import static Util.Timer.Delta;
 
 public class Wave{

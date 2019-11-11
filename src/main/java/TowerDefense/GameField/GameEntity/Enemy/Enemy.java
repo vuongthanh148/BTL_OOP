@@ -10,8 +10,8 @@ import java.io.IOException;
 
 import static TowerDefense.GamePlay.Player.lives;
 import static TowerDefense.GamePlay.Player.money;
-import static TowerDefense.GameStage.Game.TILE_SIZE;
-import static TowerDefense.GameStage.Game.gameSpeed;
+import static TowerDefense.GameState.Game.TILE_SIZE;
+import static TowerDefense.GameState.Game.gameSpeed;
 import static Util.Drawer.DrawQuadTex;
 import static Util.Drawer.QuickLoad;
 import static Util.Timer.Delta;

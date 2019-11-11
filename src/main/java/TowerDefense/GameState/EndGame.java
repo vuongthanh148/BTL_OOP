@@ -1,15 +1,15 @@
-package TowerDefense.GameStage;
+package TowerDefense.GameState;
 
 import TowerDefense.GamePlay.Player;
 import ButtonManager.UI;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;
-import TowerDefense.GameStage.StateManager.GameState;
+import TowerDefense.GameState.StateManager.GameState;
 
 import java.io.IOException;
 
 import static Util.Drawer.*;
-import static TowerDefense.GameStage.StateManager.*;
+import static TowerDefense.GameState.StateManager.*;
 
 public class EndGame {
     private Texture defeatLogo, victoryLogo;

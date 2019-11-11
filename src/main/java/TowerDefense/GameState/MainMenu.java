@@ -1,9 +1,9 @@
-package TowerDefense.GameStage;
+package TowerDefense.GameState;
 
 import ButtonManager.UI;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;
-import TowerDefense.GameStage.StateManager.GameState;
+import TowerDefense.GameState.StateManager.GameState;
 
 import java.io.IOException;
 

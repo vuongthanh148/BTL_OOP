@@ -1,4 +1,4 @@
-package TowerDefense.GameStage;
+package TowerDefense.GameState;
 
 import TowerDefense.GameField.GameEntity.GameTile.Tile.TileGrid;
 import TowerDefense.GameField.GameEntity.GameTile.Tile.TileType;
@@ -7,7 +7,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
 
-import static TowerDefense.GameStage.Game.TILE_SIZE;
+import static TowerDefense.GameState.Game.TILE_SIZE;
 import static Util.Drawer.HEIGHT;
 import static Util.EditMap.*;
 
@@ -19,7 +19,7 @@ public class Editor {
     private int cur = 0;
 
     public Editor() {
-        grid = loadMap("Stage3");
+        grid = loadMap("Stage1");
         this.cur = 0;
         this.types = new TileType[4];
         this.types[0] = TileType.Grass;

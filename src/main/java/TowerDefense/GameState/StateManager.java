@@ -1,8 +1,8 @@
-package TowerDefense.GameStage;
+package TowerDefense.GameState;
 
 import java.io.IOException;
 
-import static TowerDefense.GameStage.Game.sound;
+import static TowerDefense.GameState.Game.sound;
 import static Util.Sound.backgroundSound;
 
 public class StateManager {
