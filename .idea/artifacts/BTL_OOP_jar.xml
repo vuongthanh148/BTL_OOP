@@ -2,12 +2,12 @@
   <artifact type="jar" name="BTL_OOP:jar">
     <output-path>$PROJECT_DIR$</output-path>
     <root id="archive" name="BTL_OOP.jar">
-      <element id="module-output" name="BTL_OOP" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jars/lwjgl.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jars/jogg-0.0.7.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jars/lwjgl_util.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jars/slick-util.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jars/jorbis-0.0.15.jar" path-in-jar="/" />
+      <element id="library" level="project" name="jars" />
     </root>
   </artifact>
 </component>

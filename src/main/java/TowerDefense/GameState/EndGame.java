@@ -27,7 +27,7 @@ public class EndGame {
         if(Mouse.isButtonDown(0)){
             if(menuUI.isButtonClicked("Play")) {
                 StateManager.setState(GameState.GAME);
-                String s = "Wave1";
+                String s = "Stage1";
                 game = new Game(s);
             }
             if(menuUI.isButtonClicked("Quit")) System.exit(0);
